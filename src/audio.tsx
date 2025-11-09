@@ -9,7 +9,7 @@ interface audioTrack
 
 const playList =  
 {
-    theUnforgiving : Array<audioTrack> = [ {trackNumber:  0, trackName : "Why Not Me", trackMinutes : 0, trackSeconds : 0, audioToPlay : new Audio("AudioTracks/01 - Why Not Me.mp3") ,} ,
+    theUnforgiving : Array<audioTrack> = [ {trackNumber:  0, trackName : "Why Not Me", trackMinutes : 0, trackSeconds : 0, audioToPlay : new Audio("AudioTracks/01 - Why Not Me.mp3") },
                         {trackNumber : 1, trackName : "Shot In The Dark", trackMinutes : 0, trackSeconds : 0 , audioToPlay : new Audio("AudioTracks/02 - Shot In The Dark.mp3") } ]
 };
 
