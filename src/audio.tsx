@@ -37,9 +37,28 @@ const albums : record[] =
                 
         ]
     },
-    
-   
+    {  albumName : "The Heart Of Everything",
+        albumCover : "/Album/theheartofeverything.png",
+        releaseDate : new Date(2007, 4, 12),
+        tracks : [ 
+             { nr : 1, title : "The Howling", audio : new Audio("AudioTracks/theHeart/01 - The Howling.mp3"),  time : "0:0" },
+             { nr : 2, title : "What Have You Done" ,audio :  new Audio("AudioTracks/theHeart/02 - What Have You Done.mp3"), time : "0:0" },
+             { nr : 3, title : "Frozen", audio :  new Audio("AudioTracks/theHeart/03 - Frozen.mp3"), time : "0:0"},
+             { nr : 4,  title : "Our Solemn Hour", audio :  new Audio("AudioTracks/theHeart/04 - Our Solemn Hour.mp3"),  time : "0:0" },
+             { nr : 5,  title : "The Heart Of Everything", audio :  new Audio("AudioTracks/theHeart/05 - The Heart Of Everything.mp3"),  time : "0:0" },
+             { nr : 6,  title : "Hand Of Sorrow", audio :  new Audio("AudioTracks/theHeart/06 - Hand Of Sorrow.mp3"), time : "0:0" },
+             { nr : 7,  title : "The Cross", audio :  new Audio("AudioTracks/theHeart/07 - The Cross.mp3"),    time : "0:0"},
+             { nr : 8,  title : "Final Destination", audio :  new Audio("AudioTracks/theHeart/08 - Final Destination.mp3"),  time : "0:0"} ,
+             { nr : 9,  title : "All I Need", audio :  new Audio("AudioTracks/theHeart/09 - All I Need.mp3"),    time : "0:0"},
+             { nr : 10,  title : "The Truth Beneath The Rose", audio : new Audio("AudioTracks/theHeart/10 - The Truth Beneath The Rose.mp3"),  time : "0:0" },
+             { nr : 11,  title : "Forgiven", audio : new Audio("AudioTracks/theHeart/11 - Forgiven.mp3"),    time : "0:0" },
+             { nr : 12,  title : "What Have You Done (Rock Mix)", audio : new Audio("AudioTracks/theHeart/12 - What Have You Done (Rock Mix).mp3"), time : "0:0"},
+            
+             ]
+    }
 ];
+
+
 let isPlaying : boolean = false;
 let songPlaying : number = 0;
 
