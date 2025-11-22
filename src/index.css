@@ -20,6 +20,10 @@
 }
 
 /* BODY */
+#root {
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   --primaryFontFamily : "Monument Extended";
@@ -27,15 +31,12 @@
    /* --primaryColor: #881B30; */
    --textReleaseColor :#B81B30;
    --primaryTextColor: rgb(221, 221, 221);
-
+   
 
 }
 body {
   margin: 0;
-  position:relative;
-
-  /* position: relative; */
-  background-color: black;
+   background-color: black;
   font-family: var(--primaryFontFamily);
 
   color: white;
@@ -56,10 +57,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 6em;
+  padding: 1.2em 6em;
   background-color:transparent;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
+  z-index: 100;
 }
 
 .logoHeader {
@@ -100,7 +103,7 @@ li {
 .backgroundImage {
   width:100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   background-image: url("src/assets/Albums/theHeart/background.jpg");
   background-size:cover;
   background-position-y: -200px;
