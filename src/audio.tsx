@@ -14,7 +14,7 @@ interface record
     tracks : audioTrack[]
 };
  
-const albums : record[] =
+export const albums : record[] =
 [
     {
        albumName : "The Unforgiving",
@@ -59,7 +59,7 @@ const albums : record[] =
 ];
 
 
-let isPlaying : boolean = false;
-let songPlaying : number = 0;
+// let isPlaying : boolean = false;
+// let songPlaying : number = 0;
 
-if(!isPlaying) playList.theUnforgiving[0].audioToPlay.play();
+// if(!isPlaying) playList.theUnforgiving[0].audioToPlay.play();

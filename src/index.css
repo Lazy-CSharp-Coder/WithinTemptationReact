@@ -1,68 +1,141 @@
+/* @import "./css/navSideMenu.css";
+@import "./css/trackSection.css";
+@import "./css/coverSection.css"; */
+
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+  font-family: 'Monument Extended'; /* Choose a name for your font */
+  src: url('fonts/MonumentExtended-Regular.otf') format('opentype'); /* Path to your font file */
+  font-weight: normal; /* Optional: Specify font weight */
+  font-style: normal; /* Optional: Specify font style */
+}
+/*  Bruk klasser (class) i CSS istedet for id */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --primaryFontFamily : "Monument Extended";
+   --primaryColor : #07472C;      
+   /* --primaryColor: #881B30; */
+   --textReleaseColor :#B81B30;
+   --primaryTextColor: rgb(221, 221, 221);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  position:relative;
+
+  /* position: relative; */
+  background-color: black;
+  font-family: var(--primaryFontFamily);
+
+  color: white;
+
+  height: 200vh;
+  cursor:pointer;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 45px;
+  margin-top: 120px;
+  margin-bottom: 40px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* HEADER */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 6em;
+  background-color:transparent;
+  position: sticky;
+  top: 0;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.logoHeader {
+  height:40px;
 }
+
+.hamburgerIcon {
+  width: 32px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  /* list-style-type: none; */
+}
+
+li {
+  display: inline;
+  font-family: var(--primaryFontFamily);
+  font-size:18px;
+  /* display: flex; */
+  align-items: center;
+  gap: 5px;
+  color:white;
+}
+
+.hide {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.backgroundImage {
+  width:100%;
+  height: 100%;
+  position: absolute;
+  background-image: url("src/assets/Albums/theHeart/background.jpg");
+  background-size:cover;
+  background-position-y: -200px;
+  position: fixed;
+  background-repeat: no-repeat;
+  filter:blur(5px) brightness(38%);
+  z-index: -1;
+
+}
+
+/* MAIN */
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+
+}
+
+.socialMediaDesktopNav {
+  flex-direction: column;
+  position: fixed;
+  top : 150px;
+  right: 6.3em;
+  gap: 25px;
+}
+
+/* FOOTER */
+
+footer {
+
+  height: 200px;
+
+}
+
+
+
+
