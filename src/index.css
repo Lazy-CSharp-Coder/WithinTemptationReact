@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Monument Extended'; /* Choose a name for your font */
-  src: url('fonts/MonumentExtended-Regular.otf') format('opentype'); /* Path to your font file */
+  src: url('src/assets/fonts/MonumentExtended-Regular.otf') format('opentype'); /* Path to your font file */
   font-weight: normal; /* Optional: Specify font weight */
   font-style: normal; /* Optional: Specify font style */
 }

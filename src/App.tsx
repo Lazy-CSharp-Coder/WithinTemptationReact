@@ -5,12 +5,15 @@ import './App.css'
 
 // mine moduler som jeg prøver meg på 
 import { Header } from "./modules/Header.tsx"
-import { BackgroundImage, currentAlbum } from "./modules/BackgroundImage.tsx"
+import  BackgroundImage, {animType}   from "./modules/BackgroundImage.tsx"
+
 
 function App() {
+
+  
   return (
     <>
-      <BackgroundImage albumNumber={currentAlbum} />
+      <BackgroundImage imageFile='/src/Albums/theHeart/theheartofeverything.png' animNumber={animType.RotateIn} animDuration={"0.5s"}/>
       <Header/>
      <main>
       
