@@ -18,7 +18,7 @@ export const albums : record[] =
 [
     {
        albumName : "The Unforgiving",
-       albumCover : "/Album/theunforgiving.jpg",
+       albumCover : "src/assets/Albums/theUnforgiving/theunforgiving.jpg",
        releaseDate : new Date(2011, 4, 24),
        tracks : 
        [ 
