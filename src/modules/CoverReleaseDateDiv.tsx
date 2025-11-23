@@ -1,6 +1,6 @@
 interface albumCover {
     albumName : string,
-    fileName : string,
+    coverFile : string,
     releaseDate :  Date,
 }
 
