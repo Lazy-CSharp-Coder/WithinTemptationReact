@@ -23,7 +23,7 @@ function App() {
    
   return (
     <>
-      <BackgroundImage imageFile={backgroundImage} animNumber={animType.RotateIn} animDuration={"1.5s"}/>
+      <BackgroundImage cssClassName='backgroundImage' imageFile={backgroundImage} animNumber={animType.RotateIn} animDuration={"1.5s"}/>
       <Header/>
      <main>
       <section className='coverSection'>
