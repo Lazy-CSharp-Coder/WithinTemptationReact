@@ -14,17 +14,18 @@ import { albums } from './audio.tsx'
 function App() {
   const coverFileName = albums[0].albumCover;
   const release = albums[0].releaseDate;
+  const albumName = albums[0].albumName;
  
   return (
     <>
-      <BackgroundImage imageFile="/src/Albums/theHeart/bakground.png" animNumber={animType.RotateIn} animDuration={"0.5s"}/>
+      <BackgroundImage imageFile="/src/Albums/theUnforgiving/bakground3.jpg" animNumber={animType.RotateIn} animDuration={"0.5s"}/>
       <Header/>
      <main>
       <section className='coverSection'>
         <div className="uppperSectionContainerDiv">
           <div className="coverTextWrapper flex">
-            <CoverReleaseDateDiv albumName="The Heart Of Everything" coverFile={coverFileName} releaseDate={release} />
-            <AlbumAndArtistDiv albumName="The Heart Of Everything" albumArtist="Within Temptation"/>
+            <CoverReleaseDateDiv albumName={albumName} coverFile={coverFileName} releaseDate={release} />
+            <AlbumAndArtistDiv albumName={albumName} albumArtist="Within Temptation"/>
           </div>
         </div>
       </section>

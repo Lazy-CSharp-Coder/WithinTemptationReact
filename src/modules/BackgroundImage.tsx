@@ -21,7 +21,7 @@ export const animType = {
 export default function BackgroundImage({ imageFile, animNumber, animDuration} : options)
 {
      // bare for å få vekk den dumme feilmeldingen
-    let animCSSClass : string = "backgroundImage "; // default
+    let animCSSClass : string = "backgroundImage"; // default
  
     switch(animNumber)
     {

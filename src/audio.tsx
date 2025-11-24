@@ -8,18 +8,22 @@ interface audioTrack
 
 interface record 
 {
+    artistName : string,
     albumName : string;
     albumCover : string;
     releaseDate : Date;
-    tracks : audioTrack[]
+    tracks : audioTrack[],
+    backgroundImage : string
 };
  
 export const albums : record[] =
 [
     {
+       artistName : "Within Temptation",
        albumName : "The Unforgiving",
        albumCover : "src/assets/Albums/theUnforgiving/theunforgiving.jpg",
        releaseDate : new Date(2011, 4, 24),
+       backgroundImage : "/src/assets/Albums/theUnforgiving/background3.jpg",
        tracks : 
        [ 
             { nr : 1, title : "Why Not Me", audio : new Audio("AudioTracks/theUnforgiven/01 - Why Not Me.mp3"),  time : "0:0" },
@@ -37,9 +41,11 @@ export const albums : record[] =
                 
         ]
     },
-    {  albumName : "The Heart Of Everything",
+    {   artistName : "Within Temptation",
+        albumName : "The Heart Of Everything",
         albumCover : "src/assets/Albums/theHeart/theheartofeverything.jpg",
         releaseDate : new Date(2007, 4, 12),
+        backgroundImage : "/scr/assets/Albums/theHeart/background.jpg",
         tracks : [ 
              { nr : 1, title : "The Howling", audio : new Audio("AudioTracks/theHeart/01 - The Howling.mp3"),  time : "0:0" },
              { nr : 2, title : "What Have You Done" ,audio :  new Audio("AudioTracks/theHeart/02 - What Have You Done.mp3"), time : "0:0" },
