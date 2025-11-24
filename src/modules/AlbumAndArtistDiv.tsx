@@ -6,7 +6,7 @@ interface albumInfo
 }
 
 
-function AlbumAndArtistDiv({ albumName, albumArtist} : albumInfo)
+export function AlbumAndArtistDiv({ albumName, albumArtist} : albumInfo)
 {
     return(
         <>

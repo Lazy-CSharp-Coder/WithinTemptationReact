@@ -17,7 +17,7 @@ function App() {
  
   return (
     <>
-      <BackgroundImage imageFile='/src/Albums/theHeart/theheartofeverything.png' animNumber={animType.RotateIn} animDuration={"0.5s"}/>
+      <BackgroundImage imageFile="/src/Albums/theHeart/bakground.png" animNumber={animType.RotateIn} animDuration={"0.5s"}/>
       <Header/>
      <main>
       <section className='coverSection'>

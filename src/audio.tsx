@@ -38,7 +38,7 @@ export const albums : record[] =
         ]
     },
     {  albumName : "The Heart Of Everything",
-        albumCover : "/Album/theheartofeverything.png",
+        albumCover : "src/assets/Albums/theHeart/theheartofeverything.jpg",
         releaseDate : new Date(2007, 4, 12),
         tracks : [ 
              { nr : 1, title : "The Howling", audio : new Audio("AudioTracks/theHeart/01 - The Howling.mp3"),  time : "0:0" },
