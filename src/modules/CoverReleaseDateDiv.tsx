@@ -34,15 +34,15 @@ function getProperDateString(release : Date)
                   break;                 
     };
 
-    return`${month} ${day}, ${year}`;
+    return`${month} ${dayStr}, ${year}`;
 }
 
-export function CoverReleaseDateDiv( { albumName, fileName, releaseDate} : albumCover) 
+export function CoverReleaseDateDiv( { albumName, coverFile, releaseDate} : albumCover) 
 {
      return(
      <div className="flex coverReleaseDiv">
               <div className="sideWaysDiv flex">{albumName} <span className="releaseText">- Released {getProperDateString(releaseDate)} </span> </div>
-              <img className="coverImage" src={fileName} alt="cover image"/>
+              <img className="coverImage" src={coverFile} alt="cover image"/>
             </div>
         );
 }

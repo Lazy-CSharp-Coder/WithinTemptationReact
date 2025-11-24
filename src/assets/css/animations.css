@@ -1,10 +1,9 @@
- :root{
-  --defaultAnimDuration : "1s";
- }
+@import "./root.css";
+
   .rotateInAnim {
 
     animation-name: rotateYIn;
-    animation-duration: var(--defaultAnimDuration;
+    animation-duration: var(--defaultAnimDuration);
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     /* animation-delay: 2.5s; */
@@ -32,7 +31,7 @@
 
   .scaleInAnim {
   animation-name: scaleIn;
-  animation-duration:var(--defaultAnimDuration)
+  animation-duration:var(--defaultAnimDuration);
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
@@ -46,7 +45,7 @@
 
 .scaleOutAnim {
   animation-name: scaleOut; 
-  animation-duration: var(--defaultAnimDuration)
+  animation-duration: var(--defaultAnimDuration);
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
