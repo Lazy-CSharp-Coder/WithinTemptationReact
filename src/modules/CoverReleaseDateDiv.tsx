@@ -34,7 +34,7 @@ function getProperDateString(release : Date)
                   break;                 
     };
 
-    return`${month} ${day}, ${year}`;
+    return`${month} ${dayStr}, ${year}`;
 }
 
 export function CoverReleaseDateDiv( { albumName, coverFile, releaseDate} : albumCover) 
