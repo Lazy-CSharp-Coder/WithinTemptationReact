@@ -12,20 +12,25 @@ import { albums } from './audio.tsx'
 
 
 function App() {
-  const coverFileName = albums[0].albumCover;
-  const release = albums[0].releaseDate;
-  const albumName = albums[0].albumName;
- 
+
+  // default album values
+  const chosen = 1;
+  const coverFileName = albums[chosen].albumCover;
+  const release = albums[chosen].releaseDate;
+  const albumName = albums[chosen].albumName;
+  const artistName = albums[chosen].artistName;
+  const backgroundImage = albums[chosen].backgroundImage;
+   
   return (
     <>
-      <BackgroundImage imageFile="/src/Albums/theUnforgiving/bakground3.jpg" animNumber={animType.RotateIn} animDuration={"0.5s"}/>
+      <BackgroundImage imageFile={backgroundImage} animNumber={animType.RotateIn} animDuration={"1.5s"}/>
       <Header/>
      <main>
       <section className='coverSection'>
         <div className="uppperSectionContainerDiv">
           <div className="coverTextWrapper flex">
             <CoverReleaseDateDiv albumName={albumName} coverFile={coverFileName} releaseDate={release} />
-            <AlbumAndArtistDiv albumName={albumName} albumArtist="Within Temptation"/>
+            <AlbumAndArtistDiv albumName={albumName} albumArtist={artistName}/>
           </div>
         </div>
       </section>

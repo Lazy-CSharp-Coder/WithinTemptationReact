@@ -43,9 +43,9 @@ export const albums : record[] =
     },
     {   artistName : "Within Temptation",
         albumName : "The Heart Of Everything",
-        albumCover : "src/assets/Albums/theHeart/theheartofeverything.jpg",
+        albumCover : "src/assets/Albums/theHeart/theheartofeverything.png",
         releaseDate : new Date(2007, 4, 12),
-        backgroundImage : "/scr/assets/Albums/theHeart/background.jpg",
+        backgroundImage : "/src/assets/Albums/theHeart/background.jpg",
         tracks : [ 
              { nr : 1, title : "The Howling", audio : new Audio("AudioTracks/theHeart/01 - The Howling.mp3"),  time : "0:0" },
              { nr : 2, title : "What Have You Done" ,audio :  new Audio("AudioTracks/theHeart/02 - What Have You Done.mp3"), time : "0:0" },

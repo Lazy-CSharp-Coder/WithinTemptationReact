@@ -1,14 +1,16 @@
 import "./../assets/css/animations.css";
-// import styles from "./../assets/css/animations.css";
 import React from "react";
 
 export let currentAlbum = 0;
+
+
+
 
 interface options 
 {
     imageFile : string,
     animNumber : number,
-    animDuration? : string
+    animDuration : string
 }
 
 
@@ -18,26 +20,33 @@ export const animType = {
   ScaleIn : 2
 } as const;
 
+function setCSSVariable(variable : string, newValue : string)
+{
+       document.documentElement.style.setProperty(variable, newValue);
+}
+
 export default function BackgroundImage({ imageFile, animNumber, animDuration} : options)
 {
-     // bare for å få vekk den dumme feilmeldingen
+    
     let animCSSClass : string = "backgroundImage"; // default
  
     switch(animNumber)
     {
-        case animType.RotateIn : animCSSClass += "rotateInAnim";
+        case animType.RotateIn : animCSSClass += " rotateInAnim";
                  break;
 
-        case animType.FadeIn  : animCSSClass += "fadeInAnim";
+        case animType.FadeIn  : animCSSClass += " fadeInAnim";
                  break;
 
-        case animType.ScaleIn : animCSSClass += "scaleInAnim";
+        case animType.ScaleIn : animCSSClass += " scaleInAnim";
                  break;
 
         default : animCSSClass += " rotateInAnim";
                 break;
     }
-//  style={{"--defaultAnimDuration" : animDuration} as React.CSSProperties }
+    setCSSVariable('--defaultAnimDuration', animDuration);
+    setCSSVariable('--defaultBackgroundImage', imageFile);
+
     return( 
         <div className={animCSSClass}>
             
