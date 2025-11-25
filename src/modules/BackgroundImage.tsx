@@ -25,7 +25,7 @@ function setCSSVariable(variable : string, newValue : string)
 
 export default function BackgroundImage({cssClassName, imageFile, animNumber, animDuration} : options)
 {
-    
+       
     let animCSSClass : string = cssClassName;  
  
     switch(animNumber)
@@ -46,9 +46,9 @@ export default function BackgroundImage({cssClassName, imageFile, animNumber, an
     setCSSVariable('--defaultBackgroundImage', imageFile);
 
     return( 
-        <div className={animCSSClass}>
-            
-        </div>
+        <>
+        <div className={animCSSClass}> </div>
+        </>
     );
 }
 
