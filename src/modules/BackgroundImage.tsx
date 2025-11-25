@@ -23,7 +23,7 @@ function setCSSVariable(variable : string, newValue : string)
        document.documentElement.style.setProperty(variable, newValue);
 }
 
-export default function BackgroundImage({cssClassName imageFile, animNumber, animDuration} : options)
+export default function BackgroundImage({cssClassName, imageFile, animNumber, animDuration} : options)
 {
     
     let animCSSClass : string = cssClassName;  
