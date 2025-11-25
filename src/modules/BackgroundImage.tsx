@@ -3,11 +3,9 @@ import React from "react";
 
 export let currentAlbum = 0;
 
-
-
-
 interface options 
 {
+    cssClassName : string,
     imageFile : string,
     animNumber : number,
     animDuration : string
@@ -25,10 +23,10 @@ function setCSSVariable(variable : string, newValue : string)
        document.documentElement.style.setProperty(variable, newValue);
 }
 
-export default function BackgroundImage({ imageFile, animNumber, animDuration} : options)
+export default function BackgroundImage({cssClassName imageFile, animNumber, animDuration} : options)
 {
     
-    let animCSSClass : string = "backgroundImage"; // default
+    let animCSSClass : string = cssClassName;  
  
     switch(animNumber)
     {
@@ -41,7 +39,7 @@ export default function BackgroundImage({ imageFile, animNumber, animDuration} :
         case animType.ScaleIn : animCSSClass += " scaleInAnim";
                  break;
 
-        default : animCSSClass += " rotateInAnim";
+        default : animCSSClass += "";
                 break;
     }
     setCSSVariable('--defaultAnimDuration', animDuration);
