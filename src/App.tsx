@@ -19,7 +19,7 @@ function App() {
   const release = albums[chosen].releaseDate;
   const albumName = albums[chosen].albumName;
   const artistName = albums[chosen].artistName;
-  const backgroundImage = albums[chosen].backgroundImage;
+  const backgroundImage = albums[chosen].albumCover;
    
   return (
     <>

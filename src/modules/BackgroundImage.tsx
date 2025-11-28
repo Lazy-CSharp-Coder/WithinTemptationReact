@@ -10,24 +10,24 @@ interface options
     cssClassName : string,
     imageFile : string,
     animNumber : number,
-    animDuration : string
+    animDuration? : string | undefined
 }
 
-
 export const animType = {
-  RotateIn : 0,
-  FadeIn : 1,
-  ScaleIn : 2
+  
+  NoAnimation : 0,
+  RotateIn : 1,
+  FadeIn : 2,
+  ScaleIn : 3
 } as const;
 
-function setCSSVariable(variable : string, newValue : string)
+export function setCSSVariable(variable : string, newValue : string)
 {
        document.documentElement.style.setProperty(variable, newValue);
 }
 
 export default function BackgroundImage({cssClassName, imageFile, animNumber, animDuration} : options)
-{
-       
+{    
     let animCSSClass : string = cssClassName;  
  
     switch(animNumber)
@@ -44,13 +44,13 @@ export default function BackgroundImage({cssClassName, imageFile, animNumber, an
         default : animCSSClass += "";
                 break;
     }
-    setCSSVariable('--defaultAnimDuration', animDuration);
-    setCSSVariable('--defaultBackgroundImage', imageFile);
+    if(animDuration) setCSSVariable('--defaultAnimDuration', animDuration);
+    setCSSVariable("--defaultBackgroundImage", `url(${imageFile})`);
 
     return( 
-        <>
-        <div className={animCSSClass}> </div>
-        </>
+        <div className={animCSSClass}>
+            
+        </div>
     );
 }
 
