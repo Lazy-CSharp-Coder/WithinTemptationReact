@@ -1,0 +1,66 @@
+export interface SocialMediaItem {
+    id: number, 
+    url : string,
+    cssClass? : string
+}
+
+export interface ListMenuItem
+{   id : number,
+    name : string,
+    cssClass? : string,
+    handleClick : () => void
+}
+
+
+export function NavSideMenu({navMenuItems, socialMediaItems, handleExit }  : { navMenuItems : ListMenuItem[] , socialMediaItems : SocialMediaItem[], handleExit : () => void})
+{
+
+
+    return(
+        <>
+         <nav className="slideInMenuNav">
+        
+            <div className="flex upperHalfWrapperDiv">
+                <div className="flex headingCloseDiv">
+                    <img className="logoMenu" src="src/assets/icons/wtlogov2.jpg" alt="icon logo"/>
+                    <p className="menuHeading">WITHIN TEMPTATION</p>
+                <img  className="closeMenuImg" src="src/assets/icons/closemenu.png" onClick={handleExit}/>
+                </div>
+                    <ul  className="hamburgerList">
+                       {
+                            navMenuItems.map((listItem) =>
+                            (
+                                <li key={listItem.id} className={listItem.cssClass} onClick={listItem.handleClick}>{listItem.name}</li> 
+                            ))
+                       }
+     
+                </ul>
+            </div>
+            <div className="flex lowerHalfWrapperDiv">
+            <nav className="socialMediaDiv flex">
+                {
+                    socialMediaItems.map((item) =>
+                    (
+                       <img key={item.id} className={item.cssClass} src={item.url}/>
+                    )
+                    
+                    )
+
+                }
+               
+            </nav>
+            <div className="buttonNavDiv flex">
+                <button className="signInButton">SIGN IN</button>
+                <p className="menuHeading">OR</p>
+                <button className="signUpButton">SIGN UP</button>
+        
+            </div>
+            </div>
+    </nav>
+    
+    </>
+        
+
+    );
+
+}
