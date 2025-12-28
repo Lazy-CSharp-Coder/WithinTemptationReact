@@ -23,7 +23,7 @@ export const albums : record[] =
        albumName : "The Unforgiving",
        albumCover : "src/assets/Albums/theUnforgiving/theunforgiving.jpg",
        releaseDate : new Date(2011, 4, 24),
-       backgroundImage : "/src/assets/Albums/theUnforgiving/background3.jpg",
+       backgroundImage : "/src/assets/Albums/theUnforgiving/background.jpg",
        tracks : 
        [ 
             { nr : 1, title : "Why Not Me", audio : new Audio("AudioTracks/theUnforgiven/01 - Why Not Me.mp3"),  time : "0:0" },

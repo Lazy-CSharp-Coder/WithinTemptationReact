@@ -6,6 +6,6 @@
      --textReleaseColor :#B81B30;
      --primaryTextColor: rgb(221, 221, 221);
     --defaultAnimDuration : 1s;
-    --defaultBackgroundImage : "src/assets/Albums/theUnforgiving/theunforgiving.jpg";
+    --defaultBackgroundImage : "url(../Albums/theUnforgiving/background3.jpg)";
     
   }
