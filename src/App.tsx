@@ -3,7 +3,7 @@ import  BackgroundImage, {animType}   from "./components/BackgroundImage.tsx"
 import { HeroPage } from "./components/HeroPage.tsx";
 import { albums } from "./audio.tsx";
 
-
+import "./App.css"
 
 function App() 
 {
