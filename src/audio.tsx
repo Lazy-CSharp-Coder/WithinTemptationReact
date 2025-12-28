@@ -6,7 +6,7 @@ interface audioTrack
     audio : HTMLAudioElement;
 };
 
-interface record 
+export interface record 
 {
     artistName : string,
     albumName : string;
