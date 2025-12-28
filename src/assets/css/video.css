@@ -1,18 +1,13 @@
 .videoPlay
 {
 
-
-
-
- 
     transition-property: transform;
     transition-duration: 1.4s;
     transition-timing-function: ease-in-out;
-    z-index : 20;
+
     /* transform : rotateY(90deg); */
 
-
-    
+   
 }
 
 .iframeCSS
@@ -32,6 +27,7 @@
     right:4em;
     bottom :7%;
     filter : brightness(100%) opacity(1);
+    z-index : 120;
 }
 
 .videoPlayButton {
