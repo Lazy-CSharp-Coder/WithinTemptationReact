@@ -5,6 +5,7 @@ import { HeroPage } from "./components/HeroPage.tsx";
 import { albums } from "./audio.tsx";
 
 
+
 function App() 
 {
   const albumChosen = albums[0];
