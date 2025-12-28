@@ -29,7 +29,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
     const [shallIPlayVideo, setShallIPlay] = useState<boolean>(false);
     const [isButtonGone, setButtonStatus] = useState<boolean>(false)
 
-    const handleAnimationEnd = (event) =>
+    const handleAnimationEnd = () =>
     {
         if(shallIPlayVideo)
         {

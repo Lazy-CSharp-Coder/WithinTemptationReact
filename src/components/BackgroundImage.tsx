@@ -1,5 +1,5 @@
 import "./../assets/css/animations.css";
-import React from "react";
+
 
 //  husk å inkludere 2 css variabler index.css eller root.css
 // --defaultAnimDuration
