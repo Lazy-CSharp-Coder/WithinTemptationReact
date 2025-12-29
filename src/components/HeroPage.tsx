@@ -23,11 +23,11 @@ const supernova : Video =
 
 const socialMediaItemsArray : SocialMediaItem[] =
 [
-    { id: 1,  url : "src/assets/icons/tik-tokwhite.png", cssClass : "socialMediaIcon" },
-    { id: 2,  url : "src/assets/icons/twitterwhite.png", cssClass : "socialMediaIcon" },
-    { id: 3,  url : "src/assets/icons/facebookwhite.png", cssClass : "socialMediaIcon" },
-    { id: 4,  url : "src/assets/icons/twitchwhite.png", cssClass : "socialMediaIcon" },
-    { id: 5,  url : "src/assets/icons/discordwhite.png", cssClass : "socialMediaIcon" },
+    { id: 1,  url : "/src/assets/icons/tik-tokwhite.png", cssClass : "socialMediaIcon" },
+    { id: 2,  url : "/src/assets/icons/twitterwhite.png", cssClass : "socialMediaIcon" },
+    { id: 3,  url : "/src/assets/icons/facebookwhite.png", cssClass : "socialMediaIcon" },
+    { id: 4,  url : "/src/assets/icons/twitchwhite.png", cssClass : "socialMediaIcon" },
+    { id: 5,  url : "/src/assets/icons/discordwhite.png", cssClass : "socialMediaIcon" },
     // { id: 6,  url : "", cssClass : "socialMediaIcon" },
 
 ];
@@ -66,6 +66,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         }
     } 
 
+    
     const handleHamburgerClick = () => {
         console.log("handeling click:");
         setDisplayHamburger((prev) => !prev); }
@@ -83,7 +84,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         </section>
         <div className="videoPlayDiv">
             {!shallIPlayVideo || !isButtonGone ? <button className={!shallIPlayVideo ? 'videoPlayButton flipInYAnim' : "videoPlayButton flipOutYAnim"}  onClick={() => setShallIPlay(true)} onAnimationEnd={handleAnimationEnd} >
-            <img className='superNovaImg' src="src/assets/Video/supernovePoster.png"/><div className='flex'><span className='wannaText'>Wanna watch <span className='supernovaText'>SUPERNOVA</span> ?</span> </div></button> :
+            <img className='superNovaImg' src="/src/assets/Video/supernovePoster.png"/><div className='flex'><span className='wannaText'>Wanna watch <span className='supernovaText'>SUPERNOVA</span> ?</span> </div></button> :
             <VideoPlay width={supernova.width} height={supernova.height} title={supernova.title} src={supernova.src} cssClass={supernova.cssClass} /> }
             </div>  
         </main>

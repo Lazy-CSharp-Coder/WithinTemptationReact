@@ -22,9 +22,9 @@ export function NavSideMenu({navMenuItems, socialMediaItems, handleExit }  : { n
         
             <div className="flex upperHalfWrapperDiv">
                 <div className="flex headingCloseDiv">
-                    <img className="logoMenu" src="src/assets/icons/wtlogov2.jpg" alt="icon logo"/>
+                    <img className="logoMenu" src="/src/assets/icons/wtlogov2.jpg" alt="icon logo"/>
                     <p className="menuHeading">WITHIN TEMPTATION</p>
-                <img  className="closeMenuImg" src="src/assets/icons/closemenu.png" onClick={handleExit}/>
+                <img  className="closeMenuImg" src="/src/assets/icons/closemenu.png" onClick={handleExit}/>
                 </div>
                     <ul  className="hamburgerList">
                        {
