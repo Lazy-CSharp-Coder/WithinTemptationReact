@@ -57,3 +57,9 @@
   /* 80% { transform: scale(0.2, 0.2);} */
   100% {transform : scale(0, 0.3) ;}
 }
+
+
+@keyframes fadeInFromBelow {
+  0% { transform: translateY(-30px); opacity: 0;}
+  100% { transform: translateY(0); opacity: 1;}
+}

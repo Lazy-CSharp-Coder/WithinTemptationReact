@@ -74,6 +74,12 @@
     color:antiquewhite;
 }
 
+.videoPlayButton:hover .supernovaText {
+    
+    scale : 1.04;
+   color :#00648b;
+}
+
 .videoPlayButton:hover .superNovaImg {
     border-color:  rgb(150, 150, 150);
     -webkit-box-shadow: 0px 0px 18px 5px rgba(211,211,211,0.95); 
@@ -94,8 +100,9 @@
 } */
 
 .supernovaText {
-   color : #ff6d52;
-
+  
+   transition: all 0.9s ease;
+    color:#ff6d52;
 }
 
 
