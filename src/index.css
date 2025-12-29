@@ -63,7 +63,7 @@ header {
   width: 100%;
   top: 0;
   z-index: 100;
-  animation: flipInX 0.7s ease-in-out 0.4s;
+  animation: flipInX 0.7s ease-in-out 0.4s normal backwards;
 }
 
 

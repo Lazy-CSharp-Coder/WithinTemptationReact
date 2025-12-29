@@ -64,7 +64,7 @@
     
      writing-mode: sideways-lr;
     justify-content: flex-start;
-    animation: flipInY 1s ease-in-out 0.3s 1 normal backwards;
+    animation: flipInY 1.5s ease-in-out 0.5s 1 normal backwards;
   }
   
   .albumInfoDiv {

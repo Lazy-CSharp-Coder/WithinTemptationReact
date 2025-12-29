@@ -21,8 +21,8 @@
     justify-content: center;
     align-items: center;
     background-color:transparent;
-    width: 560px;
-    height: 315px;
+    width: 30%;
+    
     position: fixed;
     right:4em;
     bottom :7%;
@@ -34,12 +34,14 @@
     
     display: flex;
     flex-direction: column;
-    justify-content: centers;
+    justify-content: center;
     align-items: center;
     gap :10px;
     font-family: 'Monument Extended'; 
     color: white;
-    font-size: 10px;
+    width : 20em;
+    height: 100%;
+    font-size: 0.9em;
     padding: 15px 15px;
     border-radius: 3px;
       border : 4px solid orange;
@@ -59,7 +61,7 @@
 }
 
 .superNovaImg {
-    width:150px;
+    width:12em;
     border: 2px solid black;
     border-radius: 3px;
     -webkit-box-shadow: 5px 6px 16px 1px #000000; 
@@ -87,7 +89,7 @@
 }
 
 .wannaText {
-    font-size: 12px;
+    font-size: 0.8em;
     margin-top: 10px;
     color:rgba(5, 4, 2, 0.86);
     transition : all 0.9s ease;
