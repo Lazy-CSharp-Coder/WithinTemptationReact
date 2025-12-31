@@ -1,3 +1,5 @@
+import {useState} from "react"
+
 export interface SocialMediaItem {
     id: number, 
     url : string,
@@ -12,19 +14,30 @@ export interface ListMenuItem
 }
 
 
-export function NavSideMenu({navMenuItems, socialMediaItems, handleExit }  : { navMenuItems : ListMenuItem[] , socialMediaItems : SocialMediaItem[], handleExit : () => void})
+export function NavSideMenu({navMenuItems, socialMediaItems,  handleExit }  : { navMenuItems : ListMenuItem[] , socialMediaItems : SocialMediaItem[], handleExit : () => void})
 {
+    const [isDisplaying, setisDisplaying] = useState<Boolean>(true);
 
+    const handleClose = ()  =>
+    {
+        setisDisplaying(false);
+    }
+
+    const handleAnimEnd = ()=>
+    {
+        if(isDisplaying) return;
+        handleExit();
+    }
 
     return(
         <>
-         <nav className="slideInMenuNav">
+         <nav className={`slideInMenuNav ${isDisplaying ? "slideInRightAnim" : "slideOutRightAnim"}`} onAnimationEnd={handleAnimEnd}>
         
             <div className="flex upperHalfWrapperDiv">
                 <div className="flex headingCloseDiv">
                     <img className="logoMenu" src="/src/assets/icons/wtlogov2.jpg" alt="icon logo"/>
                     <p className="menuHeading">WITHIN TEMPTATION</p>
-                <img  className="closeMenuImg" src="/src/assets/icons/closemenu.png" onClick={handleExit}/>
+                <img  className="closeMenuImg" src="/src/assets/icons/closemenu.png" onClick={handleClose}/>
                 </div>
                     <ul  className="hamburgerList">
                        {
