@@ -6,7 +6,7 @@ export interface Video {
     width : string,
     title : string,
     src : string,
-    videoStoppedSignal : () => void
+    videoStoppedSignal?: () => void
     cssClass? :  string,
 }
 
@@ -21,7 +21,7 @@ export function VideoPlay({ width, height, title, src, cssClass, videoStoppedSig
     {
         if(shallClose) 
         {
-            videoStoppedSignal();
+            if(videoStoppedSignal) videoStoppedSignal();
         }
     }
      useEffect(() =>

@@ -7,6 +7,8 @@ import { AlbumAndArtistDiv } from "./AlbumAndArtistDiv.tsx"
 import {  type record } from './../audio.tsx'
 import { NavSideMenu, type SocialMediaItem, type ListMenuItem } from './NavSideMenu.tsx'
 import { Header } from "./Header.tsx"
+import { PlayButton } from './Buttons.tsx'
+import { PlayingNow } from "./PlayRecord.tsx"
 
 
 // video stuff
@@ -17,9 +19,10 @@ const supernova : Video =
     height : "315",
     title : "YouTube video player",
     src :"https://www.youtube.com/embed/Z3nb_r18ug0?si=raLyWybJKEYxMm9i" ,
-    cssClass : "iframeCSS"
+    cssClass : "iframeCSS",
+   
 
-};
+}
 
 const socialMediaItemsArray : SocialMediaItem[] =
 [
@@ -80,15 +83,22 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
             <div className="uppperSectionContainerDiv">
             <div className="coverTextWrapper flex">
                 <CoverReleaseDateDiv albumName={albumName} coverFile={coverFileName} releaseDate={release} />
-                <AlbumAndArtistDiv albumName={albumName} albumArtist={artistName}/>
+                <div className='albumInfoDiv flex'>
+                     <AlbumAndArtistDiv albumName={albumName} albumArtist={artistName}/>
+             
+                    <PlayingNow trackName="Testing" playing={true}/>
+                    <PlayButton isplaying={false}/></div>
+           
+          
             </div>
             </div>
+            
         </section>
-        <div className="videoPlayDiv">
+        {/* <div className="videoPlayDiv">
             {!shallIPlayVideo || !isButtonGone ? <button className={!shallIPlayVideo ? 'videoPlayButton flipInYAnim' : "videoPlayButton flipOutYAnim"}  onClick={() => setShallIPlay(true)} onAnimationEnd={handleAnimationEnd} >
             <img className='superNovaImg' src="/images/supernovaPoster2.jpg"/><div className='flex'><span className='wannaText'>Wanna watch <span className='supernovaText'>SUPERNOVA</span> ?</span> </div></button> :
             <VideoPlay width={supernova.width} height={supernova.height} title={supernova.title} src={supernova.src} cssClass={supernova.cssClass} videoStoppedSignal={() => setShallIPlay(false) }/> }
-            </div>  
+            </div>   */}
         </main>
         {displayHamburger  &&
             <NavSideMenu navMenuItems={navMenuItemsArray} socialMediaItems={socialMediaItemsArray} handleExit={handleHamburgerClick}/> 

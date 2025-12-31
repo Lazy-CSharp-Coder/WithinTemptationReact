@@ -85,10 +85,16 @@
   height: 30px;
   animation-name: rotate;
   animation-duration: 2s;
-  animation-iteration-count: 0;
   animation-timing-function: linear;
 }
 
+.playSong {
+  animation-iteration-count: infinite;
+}
+
+.pauseSong {
+  animation-iteration-count: 0;
+}
 @keyframes rotate {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg);}
