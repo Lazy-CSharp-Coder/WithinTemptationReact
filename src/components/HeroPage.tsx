@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, type KeyboardEventHandler } from 'react'
 
 // mine moduler som jeg prøver meg på import { VideoPlay, type Video} from "./components/Video.tsx"
 import { VideoPlay, type Video} from "./Video.tsx"
@@ -17,7 +17,7 @@ const supernova : Video =
     height : "315",
     title : "YouTube video player",
     src :"https://www.youtube.com/embed/Z3nb_r18ug0?si=raLyWybJKEYxMm9i" ,
-    cssClass : "iframeCSS flipInVideo"
+    cssClass : "iframeCSS"
 
 };
 
@@ -66,7 +66,9 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         }
     } 
 
-    
+   
+
+
     const handleHamburgerClick = () => {
         console.log("handeling click:");
         setDisplayHamburger((prev) => !prev); }
@@ -85,7 +87,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         <div className="videoPlayDiv">
             {!shallIPlayVideo || !isButtonGone ? <button className={!shallIPlayVideo ? 'videoPlayButton flipInYAnim' : "videoPlayButton flipOutYAnim"}  onClick={() => setShallIPlay(true)} onAnimationEnd={handleAnimationEnd} >
             <img className='superNovaImg' src="/images/supernovaPoster2.jpg"/><div className='flex'><span className='wannaText'>Wanna watch <span className='supernovaText'>SUPERNOVA</span> ?</span> </div></button> :
-            <VideoPlay width={supernova.width} height={supernova.height} title={supernova.title} src={supernova.src} cssClass={supernova.cssClass} /> }
+            <VideoPlay width={supernova.width} height={supernova.height} title={supernova.title} src={supernova.src} cssClass={supernova.cssClass} videoStoppedSignal={() => setShallIPlay(false) }/> }
             </div>  
         </main>
         {displayHamburger  &&

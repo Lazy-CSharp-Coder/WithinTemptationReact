@@ -31,13 +31,13 @@ export function NavSideMenu({navMenuItems, socialMediaItems,  handleExit }  : { 
 
     return(
         <>
-         <nav className={`slideInMenuNav ${isDisplaying ? "slideInRightAnim" : "slideOutRightAnim"}`} onAnimationEnd={handleAnimEnd}>
+         <nav className={`slideInMenuNav flex ${isDisplaying ? "slideInRightAnim" : "slideOutRightAnim"}`} onAnimationEnd={handleAnimEnd}>
         
             <div className="flex upperHalfWrapperDiv">
                 <div className="flex headingCloseDiv">
-                    <img className="logoMenu" src="/src/assets/icons/wtlogov2.jpg" alt="icon logo"/>
+                    <img className="logoMenu" src="/icons/wtlogov2.jpg" alt="icon logo"/>
                     <p className="menuHeading">WITHIN TEMPTATION</p>
-                <img  className="closeMenuImg" src="/src/assets/icons/closemenu.png" onClick={handleClose}/>
+                <img  className="closeMenuImg" src="/icons/closemenu.png" onClick={handleClose}/>
                 </div>
                     <ul  className="hamburgerList">
                        {
