@@ -7,7 +7,7 @@ import { AlbumAndArtistDiv } from "./AlbumAndArtistDiv.tsx"
 import {  type record } from './../audio.tsx'
 import { NavSideMenu, type SocialMediaItem, type ListMenuItem } from './NavSideMenu.tsx'
 import { Header } from "./Header.tsx"
-import { PlayButton } from './Buttons.tsx'
+import { PlayButton, ShareButton } from './Buttons.tsx'
 import { PlayingNow } from "./PlayRecord.tsx"
 
 
@@ -86,8 +86,14 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
                 <div className='albumInfoDiv flex'>
                      <AlbumAndArtistDiv albumName={albumName} albumArtist={artistName}/>
              
-                    <PlayingNow trackName="Testing" playing={true}/>
-                    <PlayButton isplaying={false}/></div>
+                    <PlayingNow trackName="Shot In The Dark" playing={false}/>
+                   <div className='flex'>
+                     <PlayButton isplaying={false}/>
+                    <ShareButton/>
+                   </div>
+                    
+                    
+                    </div>
            
           
             </div>

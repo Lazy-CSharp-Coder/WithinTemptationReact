@@ -156,21 +156,35 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    transition: all 0.4s ease;
 
 
+  }
+
+  .playButton:hover 
+  {
+    color:black;
+    background-color: white;
+    
   }
   
   .playIcon, .shareIcon, .pauseIcon {
     width : 18px;
   }
+
+ .playButton:hover .playIcon, .playButton:hover .pauseIcon  
+  {
+    filter:invert();
+  }
   
   .shareButton:hover {
     background-color: white;
     color: black;
-    .hoverImage { display: flex};
-    .defaultImage { display: none;}
+    .shareIcon { filter:invert()}
   
   }
+
+
   
   .shareButton {
     font-family: var(--primaryFontFamily);
@@ -183,11 +197,7 @@
     justify-content: center;
     gap: 10px;
   }
-  /* test */
-  .shareIconWhite {
-  
-  }
-  
+
   
   .albumButtonWrapper {
     gap : 8px;
