@@ -1,4 +1,4 @@
-import { useState, useEffect, type KeyboardEventHandler } from 'react'
+import { useState, useEffect} from 'react'
 
 // mine moduler som jeg prøver meg på import { VideoPlay, type Video} from "./components/Video.tsx"
 import { VideoPlay, type Video} from "./Video.tsx"
