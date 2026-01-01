@@ -1,15 +1,14 @@
 
 
-
 export type PlayState = "Play" | "Stop" | "Pause";
 
-interface PlayTrackInfo 
-{
-    audioObject :  HTMLAudioElement,
-    state : PlayState,
-    // set : (stateToSet : PlayState) => void
+// interface PlayTrackInfo 
+// {
+//     audioObject :  HTMLAudioElement,
+//     state : PlayState,
+//     // set : (stateToSet : PlayState) => void
 
-}
+// }
 
 export function playTrack(audioObject : HTMLAudioElement, state : PlayState)
 {
