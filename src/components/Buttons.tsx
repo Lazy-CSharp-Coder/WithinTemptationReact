@@ -1,9 +1,17 @@
-export function PlayButton({isplaying} : {isplaying : boolean})
+interface PlayButton 
+{
+    isPlaying : boolean,
+    handleButtonClick : () => void
+}
+
+
+
+export function PlayButton({isPlaying, handleButtonClick} : PlayButton)
 {
     return( 
       
-        <button  className="playButton flex"> {!isplaying ? <img className="playIcon" src="/icons/playwhite.png"/> : 
-                            <img id="pauseIcon" className="pauseIcon" src="/icons/pause.png" alt=""/>}
+        <button  className="playButton flex" onClick={handleButtonClick}> {!isPlaying ? <img className="playIcon" src="/icons/playwhite.png"/> : 
+                            <img id="pauseIcon" className="pauseIcon" src="/icons/pause.png" alt=""  />}
         PLAY NOW</button>
     );
 }

@@ -9,6 +9,7 @@ import { NavSideMenu, type SocialMediaItem, type ListMenuItem } from './NavSideM
 import { Header } from "./Header.tsx"
 import { PlayButton, ShareButton } from './Buttons.tsx'
 import { PlayingNow } from "./PlayRecord.tsx"
+import { playTrack } from './PlayAudio.tsx'
 
 
 // video stuff
@@ -26,11 +27,11 @@ const supernova : Video =
 
 const socialMediaItemsArray : SocialMediaItem[] =
 [
-    { id: 1,  url : "/src/assets/icons/tik-tokwhite.png", cssClass : "socialMediaIcon" },
-    { id: 2,  url : "/src/assets/icons/twitterwhite.png", cssClass : "socialMediaIcon" },
-    { id: 3,  url : "/src/assets/icons/facebookwhite.png", cssClass : "socialMediaIcon" },
-    { id: 4,  url : "/src/assets/icons/twitchwhite.png", cssClass : "socialMediaIcon" },
-    { id: 5,  url : "/src/assets/icons/discordwhite.png", cssClass : "socialMediaIcon" },
+    { id: 1,  url : "/icons/tik-tokwhite.png", cssClass : "socialMediaIcon" },
+    { id: 2,  url : "/icons/twitterwhite.png", cssClass : "socialMediaIcon" },
+    { id: 3,  url : "/icons/facebookwhite.png", cssClass : "socialMediaIcon" },
+    { id: 4,  url : "/icons/twitchwhite.png", cssClass : "socialMediaIcon" },
+    { id: 5,  url : "/icons/discordwhite.png", cssClass : "socialMediaIcon" },
     // { id: 6,  url : "", cssClass : "socialMediaIcon" },
 
 ];
@@ -47,6 +48,7 @@ const navMenuItemsArray :  ListMenuItem[]  =
 
 ];
 
+type PlayMode = "Playing" | "Pausing" | "Not Started";
 
 export function HeroPage({ albumChosen } : { albumChosen : record }) 
 {  
@@ -56,10 +58,17 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
     const release = albumChosen.releaseDate;
     const albumName = albumChosen.albumName;
     const artistName = albumChosen.artistName;
-       
+    
+   
     const [shallIPlayVideo, setShallIPlay] = useState<boolean>(false);
     const [isButtonGone, setButtonStatus] = useState<boolean>(false);
     const [displayHamburger, setDisplayHamburger] = useState<boolean>(false);
+
+    // useStates for playing tracks
+
+    const [playMode, setPlayMode] = useState<PlayMode>("Not Started");
+    const [currentTrack, setCurrentTrackToPlay] = useState<number>(0);
+    
 
     const handleAnimationEnd = () =>
     {
@@ -69,12 +78,20 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         }
     } 
 
-   
+   const handlePlayAlbumClick = () =>
+   {
+        console.log("play clicked");
+        if(playMode === "Playing") playTrack(albumChosen.tracks[currentTrack].audio, "Pause");
+        else playTrack(albumChosen.tracks[currentTrack].audio, "Play");
+        setPlayMode((prev) =>  prev === "Playing" ? "Pausing" : "Playing");
+   }; 
 
 
     const handleHamburgerClick = () => {
         console.log("handeling click:");
-        setDisplayHamburger((prev) => !prev); }
+        setDisplayHamburger((prev) => !prev); 
+    }
+
     return(
         <>
         <Header hamburgerClick={handleHamburgerClick}  />
@@ -83,15 +100,17 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
             <div className="uppperSectionContainerDiv">
             <div className="coverTextWrapper flex">
                 <CoverReleaseDateDiv albumName={albumName} coverFile={coverFileName} releaseDate={release} />
-                <div className='albumInfoDiv flex'>
+                <div className='albumInfoPlayWrapper flex'>
                      <AlbumAndArtistDiv albumName={albumName} albumArtist={artistName}/>
              
-                    <PlayingNow trackName="Shot In The Dark" playing={false}/>
-                   <div className='flex'>
-                     <PlayButton isplaying={false}/>
+                    <div className='playingNowButtonWrapper flex'>
+                         <PlayingNow trackName={playMode != "Not Started" ? albumChosen.tracks[currentTrack].title : ""} playing={playMode === "Playing" ? true : false}/>
+                   <div className='albumButtonWrapper flex'>
+                     <PlayButton isPlaying={playMode === "Playing" ? true : false} handleButtonClick={handlePlayAlbumClick}/>
                     <ShareButton/>
                    </div>
                     
+                    </div>
                     
                     </div>
            

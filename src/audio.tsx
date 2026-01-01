@@ -1,8 +1,8 @@
 interface audioTrack 
 {
     nr : Number;
-    title : String;
-    time : String;
+    title : string;
+    time : string;
     audio : HTMLAudioElement;
 };
 
