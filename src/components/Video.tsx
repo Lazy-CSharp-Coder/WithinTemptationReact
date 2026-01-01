@@ -50,7 +50,7 @@ export function VideoPlay({ width, height, title, src, cssClass, videoStoppedSig
     return(
         <div className="videoPlay" onAnimationEnd={handleAnimEnd} >
            <iframe className={`${shallClose ? "flipOutYAnim" : "flipInVideo"}`} width={width} height={height} src={src} title={title}  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-            <button onClick={() => setCloseStatus(true)} className={`exitInfoYoutube ${shallClose ? "scaleOutAnim" : "scaleInAnim"}`}>Click (or "Ctrl + c") to Close</button>
+            <button onClick={() => setCloseStatus(true)} className={`exitInfoYoutube ${shallClose ? "scaleOutAnim" : "scaleInAnim"}`}>Click or <span style={{color:"lightskyblue"}}>Ctrl + c</span> to Close</button>
         </div>
     )
 
