@@ -62,6 +62,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
    
     const [shallIPlayVideo, setShallIPlay] = useState<boolean>(false);
     const [isButtonGone, setButtonStatus] = useState<boolean>(false);
+    const [youtubeExited, setYoutubeExitStatus] = useState<boolean>(false)
     const [displayHamburger, setDisplayHamburger] = useState<boolean>(false);
 
     // useStates for playing tracks
@@ -87,7 +88,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         if(shallIPlayVideo)
         {
             setButtonStatus(true);
-        }
+        } 
     } 
 
    const handlePlayAlbumClick = () =>
@@ -131,11 +132,18 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
             </div>
             
         </section>
-        <div className="videoPlayDiv">
+        { !youtubeExited &&
+        <div className={shallIPlayVideo && isButtonGone? "videoPlayDiv" : "buttonPlayYoutubeDiv"}>
             {!shallIPlayVideo || !isButtonGone ? <button className={!shallIPlayVideo ? 'videoPlayButton flipInYAnim' : "videoPlayButton flipOutYAnim"}  onClick={() => setShallIPlay(true)} onAnimationEnd={handleAnimationEnd} >
             <img className='superNovaImg' src="/images/supernovaPoster2.jpg"/><div className='flex'><span className='wannaText'>Wanna watch <span className='supernovaText'>SUPERNOVA</span> ?</span> </div></button> :
-            <VideoPlay width={supernova.width} height={supernova.height} title={supernova.title} src={supernova.src} cssClass={supernova.cssClass} videoStoppedSignal={() => setShallIPlay(false) }/> }
-            </div>  
+            <div>
+                <VideoPlay width={supernova.width} height={supernova.height} title={supernova.title} src={supernova.src} cssClass={supernova.cssClass} videoStoppedSignal={() => setYoutubeExitStatus(true)}/> 
+             
+            </div>
+            }
+        </div>  
+        }
+           
         </main>
         {displayHamburger  &&
             <NavSideMenu navMenuItems={navMenuItemsArray} socialMediaItems={socialMediaItemsArray} handleExit={handleHamburgerClick}/> 

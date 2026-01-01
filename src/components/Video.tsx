@@ -16,6 +16,7 @@ export interface Video {
 export function VideoPlay({ width, height, title, src, cssClass, videoStoppedSignal} : Video)
 { 
     const [shallClose, setCloseStatus] = useState<boolean>(false);
+    
 
     const handleAnimEnd = () =>
     {
@@ -47,8 +48,9 @@ export function VideoPlay({ width, height, title, src, cssClass, videoStoppedSig
 
 
     return(
-        <div className={`videoPlay ${cssClass} ${shallClose ? "flipOutYAnim" : "flipInVideo"}`} onAnimationEnd={handleAnimEnd} >
-           <iframe width={width} height={height} src={src} title={title}  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+        <div className="videoPlay" onAnimationEnd={handleAnimEnd} >
+           <iframe className={`${shallClose ? "flipOutYAnim" : "flipInVideo"}`} width={width} height={height} src={src} title={title}  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+            <button onClick={() => setCloseStatus(true)} className={`exitInfoYoutube ${shallClose ? "scaleOutAnim" : "scaleInAnim"}`}>Click (or "Ctrl + c") to Close</button>
         </div>
     )
 
