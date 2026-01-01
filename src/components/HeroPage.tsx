@@ -69,6 +69,18 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
     const [playMode, setPlayMode] = useState<PlayMode>("Not Started");
     const [currentTrack, setCurrentTrackToPlay] = useState<number>(0);
     
+     useEffect(() =>
+    {
+        const handleAudioTrackEnded = () =>
+        {
+            if(currentTrack+1 === albumChosen.tracks.length)  setCurrentTrackToPlay(() => {playTrack(albumChosen.tracks[0].audio, "Play"); return 0} ); 
+            else setCurrentTrackToPlay((prev) =>{  playTrack(albumChosen.tracks[prev+1].audio, "Play"); return prev + 1 });
+            
+        };
+
+        albumChosen.tracks[currentTrack].audio.addEventListener("ended", handleAudioTrackEnded);
+        return () => albumChosen.tracks[currentTrack].audio.removeEventListener("ended", handleAudioTrackEnded);
+    }, [currentTrack]);
 
     const handleAnimationEnd = () =>
     {
@@ -119,11 +131,11 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
             </div>
             
         </section>
-        {/* <div className="videoPlayDiv">
+        <div className="videoPlayDiv">
             {!shallIPlayVideo || !isButtonGone ? <button className={!shallIPlayVideo ? 'videoPlayButton flipInYAnim' : "videoPlayButton flipOutYAnim"}  onClick={() => setShallIPlay(true)} onAnimationEnd={handleAnimationEnd} >
             <img className='superNovaImg' src="/images/supernovaPoster2.jpg"/><div className='flex'><span className='wannaText'>Wanna watch <span className='supernovaText'>SUPERNOVA</span> ?</span> </div></button> :
             <VideoPlay width={supernova.width} height={supernova.height} title={supernova.title} src={supernova.src} cssClass={supernova.cssClass} videoStoppedSignal={() => setShallIPlay(false) }/> }
-            </div>   */}
+            </div>  
         </main>
         {displayHamburger  &&
             <NavSideMenu navMenuItems={navMenuItemsArray} socialMediaItems={socialMediaItemsArray} handleExit={handleHamburgerClick}/> 
