@@ -2,8 +2,8 @@ export function IntroPage({exitPage} : { exitPage : () => void})
 {
     return(
         <>
-            <div className="introBackgroundDiv"></div>
-            <div className="introPageDiv flex" onClick={exitPage}>
+            <div className="introBackgroundDiv fadeInAnim"></div>
+            <div className="introPageDiv flex fadeInAnim" style={{animationDuration:"4s"}} onClick={exitPage}>
                    <h1>Within Temptation Album Page.</h1>
                    <h2>Practice page for Web Development in React + Vite.</h2>
                    <p className="introText">This is my practice page in React for Within Temptation, a Dutch symphonic rock group. </p>
