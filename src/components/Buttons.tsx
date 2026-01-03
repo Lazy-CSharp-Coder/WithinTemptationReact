@@ -13,10 +13,7 @@ export type SkipTrackMode = "Forwards" | "Backwards";
 
 export function PlayButton({isPlaying, handleButtonClick, handleSkipTrack, canSkipForwards, canSkipBackwards} : PlayButtonOptions)
 {
-    const doNothing = () =>
-    {
-        return;
-    }
+  
     return( 
       
         <button className="playButton flex" >  

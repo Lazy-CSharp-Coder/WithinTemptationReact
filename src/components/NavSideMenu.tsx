@@ -1,4 +1,5 @@
 import {useState} from "react"
+import {type record} from "./../audio"
 
 export interface SocialMediaItem {
     id: number, 
@@ -10,10 +11,9 @@ export interface ListMenuItem
 {   id : number,
     name : string,
     cssClass? : string,
-    handleClick : () => void
+    handleClick : () => void,
+
 }
-
-
 export function NavSideMenu({navMenuItems, socialMediaItems,  handleExit }  : { navMenuItems : ListMenuItem[] , socialMediaItems : SocialMediaItem[], handleExit : () => void})
 {
     const [isDisplaying, setisDisplaying] = useState<Boolean>(true);
