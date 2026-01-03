@@ -7,7 +7,7 @@ import { AlbumAndArtistDiv } from "./AlbumAndArtistDiv.tsx"
 import {  type record } from './../audio.tsx'
 import { NavSideMenu, type SocialMediaItem, type ListMenuItem } from './NavSideMenu.tsx'
 import { Header } from "./Header.tsx"
-import { PlayButton, ShareButton } from './Buttons.tsx'
+import { PlayButton, ShareButton, type SkipTrackMode} from './Buttons.tsx'
 import { PlayingNow } from "./PlayRecord.tsx"
 import { playTrack } from './PlayAudio.tsx'
 
@@ -49,6 +49,7 @@ const navMenuItemsArray :  ListMenuItem[]  =
 ];
 
 type PlayMode = "Playing" | "Pausing" | "Not Started";
+
 
 export function HeroPage({ albumChosen } : { albumChosen : record }) 
 {  
@@ -98,12 +99,29 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         else playTrack(albumChosen.tracks[currentTrack].audio, "Play");
         setPlayMode((prev) =>  prev === "Playing" ? "Pausing" : "Playing");
    }; 
-
-
-    const handleHamburgerClick = () => {
+   const handleHamburgerClick = () => {
         console.log("handeling click:");
         setDisplayHamburger((prev) => !prev); 
     }
+
+    const skipTrack = (skipmode : SkipTrackMode) => 
+    {
+        console.log("handeling skip track");
+        playTrack(albumChosen.tracks[currentTrack].audio, "Stop");
+
+        if(skipmode == "Backwards")
+        { 
+            playTrack(albumChosen.tracks[currentTrack-1].audio, "Play");
+            setCurrentTrackToPlay((prev) => prev-1); 
+
+        }
+        else if(skipmode == "Forwards")
+        {
+            playTrack(albumChosen.tracks[currentTrack+1].audio, "Play");
+            setCurrentTrackToPlay((prev) => prev+1);
+        }
+    }
+
 
     return(
         <>
@@ -119,7 +137,12 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
                     <div className='playingNowButtonWrapper flex'>
                          <PlayingNow trackName={playMode != "Not Started" ? albumChosen.tracks[currentTrack].title : ""} playing={playMode === "Playing" ? true : false}/>
                    <div className='albumButtonWrapper flex'>
-                     <PlayButton isPlaying={playMode === "Playing" ? true : false} handleButtonClick={handlePlayAlbumClick}/>
+                     <PlayButton 
+                     isPlaying={playMode === "Playing" ? true : false} 
+                     handleButtonClick={handlePlayAlbumClick} 
+                     handleSkipTrack={skipTrack} 
+                     canSkipForwards={currentTrack < albumChosen.tracks.length ? true: false}
+                     canSkipBackwards={currentTrack > 0 ? true: false}/>
                     <ShareButton/>
                    </div>
                     
