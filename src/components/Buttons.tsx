@@ -13,9 +13,13 @@ export type SkipTrackMode = "Forwards" | "Backwards";
 
 export function PlayButton({isPlaying, handleButtonClick, handleSkipTrack, canSkipForwards, canSkipBackwards} : PlayButtonOptions)
 {
+    const doNothing = () =>
+    {
+        return;
+    }
     return( 
       
-        <button  className="playButton flex" >  
+        <button onClick={isPlaying ? doNothing : handleButtonClick} className="playButton flex" >  
         <img onClick={()=>handleSkipTrack("Backwards")}src="/icons/backwardswhite.png" alt="skip backwards" className={`skipButton ${isPlaying && canSkipBackwards ? "show" : "hideFromView"}`} /> 
         <span onClick={handleButtonClick} className="playPauseTextSpan">  {!isPlaying ? <img className="playIcon" src="/icons/playwhite.png"/> : 
             <img id="pauseIcon" className="pauseIcon" src="/icons/pause.png" alt=""/> }   
