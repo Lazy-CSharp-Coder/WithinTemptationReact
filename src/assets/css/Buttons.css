@@ -9,7 +9,7 @@
   /**** play and share buttons and hover effects */
 
   .playButton {
-    width: 320px;
+    width: 300px;
     height: 53px;
     color:white;
     background-color:var(--primaryColor);
