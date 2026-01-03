@@ -141,7 +141,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
                      isPlaying={playMode === "Playing" ? true : false} 
                      handleButtonClick={handlePlayAlbumClick} 
                      handleSkipTrack={skipTrack} 
-                     canSkipForwards={currentTrack < albumChosen.tracks.length ? true: false}
+                     canSkipForwards={currentTrack < albumChosen.tracks.length-1 ? true: false}
                      canSkipBackwards={currentTrack > 0 ? true: false}/>
                     <ShareButton/>
                    </div>
