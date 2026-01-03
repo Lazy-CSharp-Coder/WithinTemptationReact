@@ -10,7 +10,7 @@ import { Header } from "./Header.tsx"
 import { PlayButton, ShareButton, type SkipTrackMode} from './Buttons.tsx'
 import { PlayingNow } from "./PlayRecord.tsx"
 import { playTrack } from './PlayAudio.tsx'
-
+import { IntroPage } from './IntroPage.tsx'
 
 // video stuff
 

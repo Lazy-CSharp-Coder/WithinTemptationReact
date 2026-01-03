@@ -1,0 +1,66 @@
+.introPageDiv
+{   
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-size: contain;
+    gap: 30px;
+    height: 100%;
+
+
+}
+
+.introBackgroundDiv {
+    width:100%;
+  height: 100%;
+  position: fixed;
+  background-image: url("/images/intropage.jpg");
+  background-size:cover;
+  background-position-y: -200px;
+  position: fixed;
+  background-repeat: no-repeat;
+  filter:blur(5px) brightness(38%);
+  z-index: -1;
+
+}
+
+.introText {
+    text-align: left;
+    background-color: transparent;
+    width: 50vw;
+}
+
+.exitIntroButton {
+    width: 300px;
+    height: 100px;
+    padding: 30px;
+    font-size: 20px;
+    color: #dfe5e7;
+    background-color: rgba(0, 0, 0, 1);
+    font-family: inherit;
+    color: rgb(221, 221, 221);
+     height: fit-content;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     gap: 10px;
+     border: 2px solid #000000;
+     border-radius: 5px;
+     transition: all 0.5s ease-in-out;
+
+}
+
+
+.exitIntroButton:hover{
+    border: 2px solid #0487de;
+    color: #0487de;
+}
+.logoButtonIntro {
+    height: 80px;
+}
+
+h1 {
+      color: transparent;
+    -webkit-text-stroke-width : 2px;
+    -webkit-text-stroke-color: var(--primaryTextColor);
+}
