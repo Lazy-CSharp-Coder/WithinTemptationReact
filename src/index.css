@@ -105,8 +105,14 @@ li {
   
 }
 
+.greyOut 
+{
+  opacity: 0.4;
+}
+
 .show {
   display: inline;
+  visibility: visible;
   opacity: 1;
 }
 

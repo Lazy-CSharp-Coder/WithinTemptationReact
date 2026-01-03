@@ -19,13 +19,13 @@ export function PlayButton({isPlaying, handleButtonClick, handleSkipTrack, canSk
     }
     return( 
       
-        <button onClick={isPlaying ? doNothing : handleButtonClick} className="playButton flex" >  
-        <img onClick={()=>handleSkipTrack("Backwards")}src="/icons/backwardswhite.png" alt="skip backwards" className={`skipButton ${isPlaying && canSkipBackwards ? "show" : "hideFromView"}`} /> 
+        <button className="playButton flex" >  
+        <img onClick={()=>handleSkipTrack("Backwards")}src="/icons/backwardswhite.png" alt="skip backwards" className={`skipButton ${isPlaying && canSkipBackwards ? "show" : "greyOut"}`} /> 
         <span onClick={handleButtonClick} className="playPauseTextSpan">  {!isPlaying ? <img className="playIcon" src="/icons/playwhite.png"/> : 
             <img id="pauseIcon" className="pauseIcon" src="/icons/pause.png" alt=""/> }   
             <span>{isPlaying ? "PAUSE" : "PLAY"} </span>
         </span>
-        <img onClick={()=>handleSkipTrack("Forwards")}  src="/icons/forwardswhite.png" alt="skip forwards" className={`skipButton ${isPlaying && canSkipForwards ? "show" : "hideFromView"}`} /></button>
+        <img onClick={()=>handleSkipTrack("Forwards")}  src="/icons/forwardswhite.png" alt="skip forwards" className={`skipButton ${isPlaying && canSkipForwards ? "show" : "greyOut"}`} /></button>
     );
 }
 
