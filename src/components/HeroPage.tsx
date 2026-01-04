@@ -105,7 +105,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         <>
     
         <main>
-        <section className='coverSection'>
+        <section key={albumChosen.albumName} className='coverSection'>
             <div className="uppperSectionContainerDiv">
             <div className="coverTextWrapper flex">
                 <CoverReleaseDateDiv albumName={albumName} coverFile={coverFileName} releaseDate={release} />

@@ -16,7 +16,7 @@ export function PlayButton({isPlaying, handleButtonClick, handleSkipTrack, canSk
   
     return( 
       
-        <button className="playButton flex" >  
+        <button className="playButton flex scaleInAnimPlay" >  
         <img onClick={()=>handleSkipTrack("Backwards")}src="/icons/backwardswhite.png" alt="skip backwards" className={`skipButton ${isPlaying && canSkipBackwards ? "show" : "greyOut"}`} /> 
         <span onClick={handleButtonClick} className="playPauseTextSpan">  {!isPlaying ? <img className="playIcon" src="/icons/playwhite.png"/> : 
             <img id="pauseIcon" className="pauseIcon" src="/icons/pause.png" alt=""/> }   
@@ -29,7 +29,7 @@ export function PlayButton({isPlaying, handleButtonClick, handleSkipTrack, canSk
 export function ShareButton()
 {
     return(
-        <button className="shareButton flex"> <img className="shareIcon defaultImage" 
+        <button className="shareButton flex scaleInAnimShare"> <img className="shareIcon defaultImage" 
             src="icons/sharewhite.png" alt="shareIcon"/>SHARE</button>
 
     );

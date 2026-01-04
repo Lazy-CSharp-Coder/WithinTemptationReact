@@ -22,14 +22,22 @@ export function ListItem({id, text, cssClass, handleClick, subMenu} : ListMenuIt
             setShowSubMenu(true);
 
 
-        }else if(handleClick) handleClick(id, text);
+        }else
+        
+            {
+                console.log("not internally anymore");
+             if(handleClick) handleClick(id, text);
+        }
         
        
         
 
     }
-    if(subMenu) console.log("has recieved sub");
+    if(subMenu)
+        { console.log("has recieved sub");
+            console.log("routine for handeling clicks : " + subMenu.handleMenuClick);
 
+        }
     return(
 
         <li className={`defaultListItem ${cssClass}`} onClick={handleClickInternally}>{text}

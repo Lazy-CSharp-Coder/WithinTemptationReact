@@ -42,7 +42,7 @@ function App()
   const [shownIntro, setShownIntro] = useState<boolean>(false);
   const [albumNumber, setAlbumNumber] = useState<number>(0);
   const initRef = useRef(false);
-  // const [subHamMenuDisplaying, setSubMenuDisplaying] = useState<MenuListOptions | undefined>(undefined)
+  
   const [displayHamburger, setDisplayHamburger] = useState<boolean>(false);
   const [navMenu, setNavMenu] = useState<MenuListOptions>(
     { 
@@ -59,35 +59,9 @@ function App()
 
   const handleMenuListItemClick =  (id : number, text : string) =>
     {
-
-        if(id == 1 && text === "STUDIO ALBUMS")
-        {
-          console.log("Studio albums clicked");
-        //   if(subHamMenuDisplaying != undefined )
-        //   {
-          
-        //   }
-
-        //   albums.forEach((item, index) =>
-        //   {
-        //      albumMenu.listItems.push({ id : index, text : item.albumName, handleClick : handleMenuListItemClick, cssClass: "scaleInAnim"});
-        //      console.log("adding album :  " +  item.albumName);
-
-        //   });
-
-        //   // setSubMenuDisplaying(albumMenu);
-        //   setNavMenu((prev) => {
-        //       return {...prev, listItems : prev.listItems.map((item) =>
-        //       {
-        //         console.log("setting new stuff. should run sometimes");
-        //         if(item.text === "STUDIO ALBUMS") return {...item, subMenuList : albumMenu}
-        //         else return item;
-        //       })}
-
-        //   })
-
-        // }
-        }
+        console.log("You've clicked " + id + " " + text);
+        setAlbumNumber(id);
+      
     }
 
     // setNavMenuItems((prev) => (prev.map((item) => {...item, handleClick : handleMenuListItemClick} ) ) ); 
@@ -101,13 +75,13 @@ function App()
 
     useEffect( () =>
     {
-        // if(initRef.current) return;
-        // initRef.current = true;
-        const subAlbumMenu : MenuListOptions = { id : "STUDIO ALBUMS" , listItems : [], handleMenuClick : (id, text) => {}, cssClass : "subMenuList"};
+        if(initRef.current) return;
+        initRef.current = true;
+        const subAlbumMenu : MenuListOptions = { id : "STUDIO ALBUMS" , listItems : [], handleMenuClick : handleMenuListItemClick, cssClass : "subMenuList"};
 
         albums.forEach((item, index) =>
         {            
-            subAlbumMenu.listItems.push({id : index+1, text : item.albumName, handleClick: handleMenuListItemClick});
+            subAlbumMenu.listItems.push({id : index, text : item.albumName,  cssClass : "subMenuListItem scaleInAnim"});
 
         });
       console.log("updating table with defined function handleMenuListItemClick. Should appear once in console") ;
@@ -130,13 +104,14 @@ function App()
 
     // make studio album menu 
     console.log(navMenu);
+    const albumChosen = albums[albumNumber];
 
    if(!shownIntro)   return(<IntroPage exitPage={() => setShownIntro(true)}/>)   // show intro page if it has not been displayed
   return (
     <>
       <Header hamburgerClick={handleHamburgerClick}/>
       <BackgroundImage cssClassName='backgroundImage' imageFile={albums[albumNumber].backgroundImage} animNumber={animType.FadeIn} animDuration={"1s"}/>
-      <HeroPage albumChosen={albums[albumNumber]}/>    
+      <HeroPage albumChosen={albumChosen}/>    
       {displayHamburger  &&
       <NavSideMenu key={navMenu.id} navMenu={navMenu} socialMediaItems={socialMediaItemsArray} handleExit={handleHamburgerClick}/> 
         

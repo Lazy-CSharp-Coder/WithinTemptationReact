@@ -8,8 +8,15 @@
 
 .subMenuList {
 
+    padding-top: 20px;
     padding-left: 20px;
+    list-style:armenian;
     font-size: 10px;
     color: lightskyblue;
 }
 
+.subMenuListItem
+{
+    font-size: inherit;
+    color : inherit;
+}

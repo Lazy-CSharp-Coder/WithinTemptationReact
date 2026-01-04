@@ -29,11 +29,23 @@
     100% { opacity: 1; }
   }
 
-  .scaleInAnim {
+  .scaleInAnim, .scaleInAnimPlay, .scaleInAnimShare {
   animation-name: scaleIn;
   animation-duration:var(--defaultAnimDuration);
   animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
+  animation-fill-mode: backwards;
+}
+
+.scaleInAnimPlay 
+{
+   animation-delay: 0.3s;
+   animation-fill-mode: backwards;
+
+}
+
+.scaleInAnimShare
+{
+  animation-delay: 0.5s;
 }
 
 @keyframes scaleIn {
