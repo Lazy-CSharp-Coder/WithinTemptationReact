@@ -5,3 +5,11 @@
 .defaultListItem {
     color: white;
 }
+
+.subMenuList {
+
+    padding-left: 20px;
+    font-size: 10px;
+    color: lightskyblue;
+}
+

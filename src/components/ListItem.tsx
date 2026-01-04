@@ -1,3 +1,5 @@
+import {useState} from "react"
+
 import  {type MenuListOptions, MenuList } from "./MenuList"
 
 export interface ListMenuItem
@@ -12,18 +14,26 @@ export interface ListMenuItem
 
 export function ListItem({id, text, cssClass, handleClick, subMenu} : ListMenuItem)
 {
+    const [showSubMenu, setShowSubMenu] = useState<boolean>(false);
     const handleClickInternally = () =>
     {
-        console.log("handleing click internally");
-        console.log(subMenu);
-        if(subMenu) console.log("there is a sub for this item");
+        if(subMenu)
+        {
+            setShowSubMenu(true);
+
+
+        }else if(handleClick) handleClick(id, text);
+        
+       
+        
+
     }
     if(subMenu) console.log("has recieved sub");
 
     return(
 
         <li className={`defaultListItem ${cssClass}`} onClick={handleClickInternally}>{text}
-            {subMenu &&
+            {(showSubMenu && subMenu) &&
                 <MenuList key={subMenu.id} menuList={subMenu} />
             }
         </li>

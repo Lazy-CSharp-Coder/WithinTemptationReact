@@ -35,21 +35,6 @@ const socialMediaItemsArray : SocialMediaItem[] =
 
     ];
      
-    // legg en foreløpig menu optsjon- skal geenereres automatisk
-    const albumMenu : MenuListOptions = 
-    {
-     id : "STUDIO ALBUMS",
-     listItems : [ 
-      
-      //  { id: 1, text : "test"  }
-    
-    ],
-    handleMenuClick : (id, text) => {}
-  
-  } ;
- 
-
-
 function App() 
 {
   
@@ -118,7 +103,7 @@ function App()
     {
         // if(initRef.current) return;
         // initRef.current = true;
-        const subAlbumMenu : MenuListOptions = { id : "STUDIO ALBUMS" , listItems : [], handleMenuClick : (id, text) => {}};
+        const subAlbumMenu : MenuListOptions = { id : "STUDIO ALBUMS" , listItems : [], handleMenuClick : (id, text) => {}, cssClass : "subMenuList"};
 
         albums.forEach((item, index) =>
         {            
