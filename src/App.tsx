@@ -116,8 +116,8 @@ function App()
 
     useEffect( () =>
     {
-        if(initRef.current) return;
-        initRef.current = true;
+        // if(initRef.current) return;
+        // initRef.current = true;
         const subAlbumMenu : MenuListOptions = { id : "STUDIO ALBUMS" , listItems : [], handleMenuClick : (id, text) => {}};
 
         albums.forEach((item, index) =>

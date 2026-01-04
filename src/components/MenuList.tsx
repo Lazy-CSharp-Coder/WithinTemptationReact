@@ -14,7 +14,7 @@ export function MenuList({menuList}  : { menuList : MenuListOptions })
         <ul key={menuList.id} className={`defaultMenuList ${menuList.cssClass}`}>
             {
                 menuList.listItems.map((item) => 
-                     <ListItem key={item.id} id={item.id} cssClass={item.cssClass} text={item.text} handleClick={menuList.handleMenuClick}/>)             
+                     <ListItem key={item.id} id={item.id} cssClass={item.cssClass} text={item.text} handleClick={menuList.handleMenuClick} subMenu={item.subMenu}/>)             
             }
 
 

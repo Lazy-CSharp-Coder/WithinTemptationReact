@@ -19,6 +19,7 @@ export function ListItem({id, text, cssClass, handleClick, subMenu} : ListMenuIt
         if(subMenu) console.log("there is a sub for this item");
     }
     if(subMenu) console.log("has recieved sub");
+
     return(
 
         <li className={`defaultListItem ${cssClass}`} onClick={handleClickInternally}>{text}
