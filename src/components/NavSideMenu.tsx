@@ -1,4 +1,5 @@
 import {useState} from "react"
+import { type MenuListOptions, MenuList} from "./MenuList"
 
 
 export interface SocialMediaItem {
@@ -7,14 +8,16 @@ export interface SocialMediaItem {
     cssClass? : string
 }
 
-export interface ListMenuItem
-{   id : number,
-    name : string,
-    cssClass? : string,
-    handleClick : () => void,
+// export interface ListMenuItem
+// {   id : number,
+//     name : string,
+//     cssClass? : string,
+//     handleClick : () => void,
 
-}
-export function NavSideMenu({navMenuItems, socialMediaItems,  handleExit }  : { navMenuItems : ListMenuItem[] , socialMediaItems : SocialMediaItem[], handleExit : () => void})
+// }
+
+
+export function NavSideMenu({navMenu, socialMediaItems,  handleExit }  : { navMenu : MenuListOptions , socialMediaItems : SocialMediaItem[], handleExit : () => void})
 {
     const [isDisplaying, setisDisplaying] = useState<Boolean>(true);
 
@@ -29,6 +32,7 @@ export function NavSideMenu({navMenuItems, socialMediaItems,  handleExit }  : { 
         handleExit();
     }
 
+ 
     return(
         <>
          <nav className={`slideInMenuNav flex ${isDisplaying ? "slideInRightAnim" : "slideOutRightAnim"}`} onAnimationEnd={handleAnimEnd}>
@@ -39,16 +43,8 @@ export function NavSideMenu({navMenuItems, socialMediaItems,  handleExit }  : { 
                     <p className="menuHeading">WITHIN TEMPTATION</p>
                 <img  className="closeMenuImg" src="/icons/closemenu.png" onClick={handleClose}/>
                 </div>
-                    <ul  className="hamburgerList">
-                       {
-                            navMenuItems.map((listItem) =>
-                            (
-                                <li key={listItem.id} className={listItem.cssClass} onClick={listItem.handleClick}>{listItem.name}</li> 
-                            ))
-                       }
-     
-                </ul>
-            </div>
+                   <MenuList menuList={navMenu}       />
+                        </div>
             <div className="flex lowerHalfWrapperDiv">
             <nav className="socialMediaDiv flex">
                 {

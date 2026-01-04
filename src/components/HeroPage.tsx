@@ -5,11 +5,10 @@ import { VideoPlay, type Video} from "./Video.tsx"
 import { CoverReleaseDateDiv } from './CoverReleaseDateDiv.tsx'
 import { AlbumAndArtistDiv } from "./AlbumAndArtistDiv.tsx"
 import {  type record } from './../audio.tsx'
-import { NavSideMenu, type SocialMediaItem, type ListMenuItem } from './NavSideMenu.tsx'
-import { Header } from "./Header.tsx"
 import { PlayButton, ShareButton, type SkipTrackMode} from './Buttons.tsx'
 import { PlayingNow } from "./PlayRecord.tsx"
 import { playTrack } from './PlayAudio.tsx'
+
 
 
 // video stuff
@@ -24,29 +23,6 @@ const supernova : Video =
    
 
 }
-
-const socialMediaItemsArray : SocialMediaItem[] =
-[
-    { id: 1,  url : "/icons/tik-tokwhite.png", cssClass : "socialMediaIcon" },
-    { id: 2,  url : "/icons/twitterwhite.png", cssClass : "socialMediaIcon" },
-    { id: 3,  url : "/icons/facebookwhite.png", cssClass : "socialMediaIcon" },
-    { id: 4,  url : "/icons/twitchwhite.png", cssClass : "socialMediaIcon" },
-    { id: 5,  url : "/icons/discordwhite.png", cssClass : "socialMediaIcon" },
-    // { id: 6,  url : "", cssClass : "socialMediaIcon" },
-
-];
-
-const  placeHolderClick = ()=> { console.log("ikke implementert ennå ") };
-
-const navMenuItemsArray :  ListMenuItem[]  =
-[
-    { id : 1, name : "STUDIO ALBUMS", handleClick : placeHolderClick, cssClass :"hamburgerListItem"  },
-    { id : 2, name : "MEMBERS", handleClick : placeHolderClick ,  cssClass :"hamburgerListItem"  },
-    { id : 3, name : "TOURS", handleClick : placeHolderClick,  cssClass :"hamburgerListItem"  },
-    { id : 4 ,name : "NEWS" , handleClick : placeHolderClick , cssClass :"hamburgerListItem"  },
-    { id : 5, name : "EVENTS" , handleClick : placeHolderClick , cssClass :"hamburgerListItem"  }
-
-];
 
 type PlayMode = "Playing" | "Pausing" | "Not Started";
 
@@ -64,12 +40,15 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
     const [shallIPlayVideo, setShallIPlay] = useState<boolean>(false);
     const [isButtonGone, setButtonStatus] = useState<boolean>(false);
     const [youtubeExited, setYoutubeExitStatus] = useState<boolean>(false)
-    const [displayHamburger, setDisplayHamburger] = useState<boolean>(false);
-
+   
     // useStates for playing tracks
 
     const [playMode, setPlayMode] = useState<PlayMode>("Not Started");
     const [currentTrack, setCurrentTrackToPlay] = useState<number>(0);
+    
+  
+
+
     
      useEffect(() =>
     {
@@ -99,11 +78,10 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         else playTrack(albumChosen.tracks[currentTrack].audio, "Play");
         setPlayMode((prev) =>  prev === "Playing" ? "Pausing" : "Playing");
    }; 
-   const handleHamburgerClick = () => {
-        console.log("handeling click:");
-        setDisplayHamburger((prev) => !prev); 
-    }
 
+
+
+   
     const skipTrack = (skipmode : SkipTrackMode) => 
     {
         console.log("handeling skip track");
@@ -125,7 +103,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
 
     return(
         <>
-        <Header hamburgerClick={handleHamburgerClick}  />
+    
         <main>
         <section className='coverSection'>
             <div className="uppperSectionContainerDiv">
@@ -168,10 +146,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         }
            
         </main>
-        {displayHamburger  &&
-            <NavSideMenu navMenuItems={navMenuItemsArray} socialMediaItems={socialMediaItemsArray} handleExit={handleHamburgerClick}/> 
-        
-           }   
+      
         </>
     );
 }
