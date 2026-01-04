@@ -110,7 +110,7 @@ function App()
   return (
     <>
       <Header hamburgerClick={handleHamburgerClick}/>
-      <BackgroundImage cssClassName='backgroundImage' imageFile={albums[albumNumber].backgroundImage} animNumber={animType.FadeIn} animDuration={"1s"}/>
+      <BackgroundImage key={albumChosen.backgroundImage}  cssClassName='backgroundImage' imageFile={albums[albumNumber].backgroundImage} animNumber={animType.FadeIn} animDuration={"1s"}/>
       <HeroPage albumChosen={albumChosen}/>    
       {displayHamburger  &&
       <NavSideMenu key={navMenu.id} navMenu={navMenu} socialMediaItems={socialMediaItemsArray} handleExit={handleHamburgerClick}/> 

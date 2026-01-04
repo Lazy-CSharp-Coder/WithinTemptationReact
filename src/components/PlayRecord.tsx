@@ -9,7 +9,7 @@ export function PlayingNow({trackName, playing} : PlayingNow)
 {
     return(
 
-          <div className="nowPlayingDiv flex"> 
+          <div className="nowPlayingDiv flex scaleInAnim"> 
             <img className={`recordIcon ${playing ? "playSong" : "pauseSong"}`} src="icons/record.png" alt="" />  
             <p  className="nowPlayingText">{trackName}</p>
           </div>
