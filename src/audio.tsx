@@ -87,7 +87,7 @@ const acousticSuggestions : YoutubeSuggestion[] =
         imageurl : "/images/youtube/acoustic.jpg",
         songTitle : "Somewhere",
         released : "13th November 2008",
-        description : `"Somewhere" is originally from the album "The Silent Force". Here the lead vocalist teams up with Anneke Van Giersbergen with the support of The Metropole Orchestra`,
+        description : `"Somewhere" is originally from the album "The Silent Force". Here the lead vocalist teams up with Anneke Van Giersbergen with the support of The Metropole Orchestra.`,
         videoInfo : { width : "560", height: "315", title : "Youtube video player", src : "https://www.youtube.com/embed/7eqBmEO5MHE?si=l-lfYXiq4v-tlOaE" , cssClass : "iframeCSS" }
 
 
