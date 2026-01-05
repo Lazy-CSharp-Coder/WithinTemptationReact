@@ -29,7 +29,7 @@ const hydraSuggestions : YoutubeSuggestion[] =
         songTitle : "Dangerous",
         released : "20th December 2013",
         description : `"Dangerous" is the second single from the album. The song features guest vocals from Howard Jones, the lead singer from the group Light the Torch.`,
-        videoInfo : { width : "560", height: "315", title : "Youtube video player", src :"https://www.youtube.com/embed/MAiV8RpqzME?si=HOrosGom12gzXO8m", cssClass : "iframeCSS" }
+        videoInfo : { width : "560", height: "315", title : "Youtube video player", src :"https://www.youtube.com/embed/MAiV8RpqzME?si=LEIwykD_Tr9G17fS" , cssClass : "iframeCSS" }
 
 
         }

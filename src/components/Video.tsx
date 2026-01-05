@@ -65,4 +65,3 @@ export function VideoPlay({ width, height, title, src, cssClass, videoStoppedSig
     )
 
 }
-
