@@ -20,19 +20,13 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
     const release = albumChosen.releaseDate;
     const albumName = albumChosen.albumName;
     const artistName = albumChosen.artistName;
-    
- 
-   
+  
     // useStates for playing tracks
 
     const [playMode, setPlayMode] = useState<PlayMode>("Not Started");
     const [currentTrack, setCurrentTrackToPlay] = useState<number>(0);
     
-  
-
-
-    
-     useEffect(() =>
+    useEffect(() =>
     {
         const handleAudioTrackEnded = () =>
         {
