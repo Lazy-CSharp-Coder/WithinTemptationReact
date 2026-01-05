@@ -17,31 +17,48 @@ export interface record
 };
  
 export const albums : record[] =
-[
-    {
+[ {
        artistName : "Within Temptation",
-       albumName : "The Unforgiving",
-       albumCover : "/images/theunforgiving.jpg",
+       albumName : "Mother Earth",
+       albumCover : "/images/motherEarth.jpg",
        releaseDate : new Date(2011, 4, 24),
-       backgroundImage : "/images/background.jpg",
+       backgroundImage : "/images/motherEarthBackground.jpg",
        tracks : 
        [ 
-            { nr : 1, title : "Why Not Me", audio : new Audio("/AudioTracks/theUnforgiving/01 - Why Not Me.mp3"),  time : "0:0" },
-            { nr : 2, title : "Shot In The Dark" ,audio :  new Audio("/AudioTracks/theUnforgiving/02 - Shot In The Dark.mp3"), time : "0:0" },
-            { nr : 3, title : "In The Middle Of The Night", audio :  new Audio("/AudioTracks/theUnforgiving/03 - In The Middle Of The Night.mp3"), time : "0:0"},
-            { nr : 4,  title : "Faster", audio :  new Audio("/AudioTracks/theUnforgiving/04 - Faster.mp3"),  time : "0:0" },
-            { nr : 5,  title : "Fire And Ice", audio :  new Audio("/AudioTracks/theUnforgiving/05 - Fire And Ice.mp3"),  time : "0:0" },
-            { nr : 6,  title : "Iron", audio :  new Audio("/AudioTracks/theUnforgiving/06 - Iron.mp3"), time : "0:0" },
-            { nr : 7,  title : "Where Is The Edge", audio :  new Audio("/AudioTracks/theUnforgiving/07 - Where Is The Edge.mp3"),    time : "0:0"},
-            { nr : 8,  title : "Sinead", audio :  new Audio("/AudioTracks/theUnforgiving/08 - Sinead.mp3"),  time : "0:0"} ,
-            { nr : 9,  title : "Lost", audio :  new Audio("/AudioTracks/theUnforgiving/09 - Lost.mp3"),    time : "0:0"},
-            { nr : 10,  title : "Murder", audio : new Audio("/AudioTracks/theUnforgiving/10 - Murder.mp3"),  time : "0:0" },
-            { nr : 11,  title : "A Demon's Fate", audio : new Audio("/AudioTracks/theUnforgiving/11 - A Demon's Fate.mp3"),    time : "0:0" },
-            { nr : 12,  title : "Stairway To The Skies", audio : new Audio("/AudioTracks/theUnforgiving/12 - Stairway To The Skies.mp3"), time : "0:0"},
+            { nr : 1, title : "Mother Earth", audio : new Audio("/AudioTracks/motherEarth/01 - Mother Earth.mp3"),  time : "0:0" },
+            { nr : 2, title : "Ice Queen" ,audio :  new Audio("/AudioTracks/motherEarth/02 - Ice Queen.mp3"), time : "0:0" },
+            { nr : 3, title : "Our Farewell", audio :  new Audio("/AudioTracks/motherEarth/03 - Our Farewell.mp3"), time : "0:0"},
+            { nr : 4,  title : " Caged", audio :  new Audio("/AudioTracks/motherEarth/04 - Caged.mp3"),  time : "0:0" },
+            { nr : 5,  title : "The Promise", audio :  new Audio("/AudioTracks/motherEarth/05 - The Promise.mp3"),  time : "0:0" },
+            { nr : 6,  title : "Never-Ending Story", audio :  new Audio("/AudioTracks/motherEarth/06 - Never-Ending Story.mp3"), time : "0:0" },
+            { nr : 7,  title : "Deceiver Of Fools", audio :  new Audio("/AudioTracks/motherEarth/07 - Deceiver Of Fools.mp3"),    time : "0:0"},
+            { nr : 8,  title : "Intro", audio :  new Audio("/AudioTracks/motherEarth/08 - Intro.mp3"),  time : "0:0"} ,
+            { nr : 9,  title : "Dark Wings", audio :  new Audio("/AudioTracks/motherEarth/09 - Dark Wingst.mp3"),    time : "0:0"},
+            { nr : 10,  title : "In Perfect Harmony", audio : new Audio("/AudioTracks/motherEarth/10 - In Perfect Harmony.mp3"),  time : "0:0" },
+           
                 
         ]
     },
     {   artistName : "Within Temptation",
+        albumName : "The Silent Force",
+        albumCover : "/images/theSilentForce.jpg",
+        releaseDate : new Date(2007, 4, 12),
+        backgroundImage : "/images/theSilentForceBackground.png",
+        tracks : [ 
+             { nr : 1, title : "Intro", audio : new Audio("/AudioTracks/theSlientForce/01 - Intro.mp3"),  time : "0:0" },
+             { nr : 2, title : "See Who I Am" ,audio :  new Audio("/AudioTracks/theSlientForce/02 - See Who I Am.mp3"), time : "0:0" },
+             { nr : 3, title : "Jillian (I'd Give My Heart)", audio :  new Audio("/AudioTracks/theSlientForce/03 - Jillian (I'd Give My Heart).mp3"), time : "0:0"},
+             { nr : 4,  title : "Stand My Ground", audio :  new Audio("/AudioTracks/theSlientForce/04 - Stand My Ground.mp3"),  time : "0:0" },
+             { nr : 5,  title : "Pale", audio :  new Audio("/AudioTracks/theSlientForce/05 - Pale.mp3"),  time : "0:0" },
+             { nr : 6,  title : "Forsaken", audio :  new Audio("/AudioTracks/theSlientForce/06 - Forsaken.mp3"), time : "0:0" },
+             { nr : 7,  title : "Angels", audio :  new Audio("/AudioTracks/theSlientForce/07 - Angels.mp3"),    time : "0:0"},
+             { nr : 8,  title : "Memories", audio :  new Audio("/AudioTracks/theSlientForce/08 - Memories.mp3"),  time : "0:0"} ,
+             { nr : 9,  title : "Aquarius", audio :  new Audio("/AudioTracks/theSlientForce/09 - Aquariusmp3"),    time : "0:0"},
+             { nr : 10,  title : "It's The Fear", audio : new Audio("/AudioTracks/theSlientForce/10 - It's The Fear.mp3"),  time : "0:0" },
+             { nr : 11,  title : "Somewhere", audio : new Audio("/AudioTracks/theSlientForce/11 - Somewhere.mp3"),    time : "0:0" },
+          
+             ]
+    }, {   artistName : "Within Temptation",
         albumName : "The Heart Of Everything",
         albumCover : "/images/theheartofeverything.png",
         releaseDate : new Date(2007, 4, 12),
@@ -61,7 +78,7 @@ export const albums : record[] =
              { nr : 12,  title : "What Have You Done (Rock Mix)", audio : new Audio("/AudioTracks/theHeart/12 - What Have You Done (Rock Mix).mp3"), time : "0:0"},
             
              ]
-    },{   artistName : "Within Temptation",
+    }, {   artistName : "Within Temptation",
         albumName : "An Acoustic Night at the Theatre",
      albumCover : "/images/acoustic.jpg",
         releaseDate : new Date(2009, 9, 30),
@@ -82,6 +99,49 @@ export const albums : record[] =
             
              ]
     },
+    {
+       artistName : "Within Temptation",
+       albumName : "The Unforgiving", 
+       albumCover : "/images/theUnforgiving.jpg",
+       releaseDate : new Date(2011, 4, 24),
+       backgroundImage : "/images/theUnforgivingBackground.jpg",
+       tracks : 
+       [ 
+            { nr : 1, title : "Why Not Me", audio : new Audio("/AudioTracks/theUnforgiving/01 - Why Not Me.mp3"),  time : "0:0" },
+            { nr : 2, title : "Shot In The Dark" ,audio :  new Audio("/AudioTracks/theUnforgiving/02 - Shot In The Dark.mp3"), time : "0:0" },
+            { nr : 3, title : "In The Middle Of The Night", audio :  new Audio("/AudioTracks/theUnforgiving/03 - In The Middle Of The Night.mp3"), time : "0:0"},
+            { nr : 4,  title : "Faster", audio :  new Audio("/AudioTracks/theUnforgiving/04 - Faster.mp3"),  time : "0:0" },
+            { nr : 5,  title : "Fire And Ice", audio :  new Audio("/AudioTracks/theUnforgiving/05 - Fire And Ice.mp3"),  time : "0:0" },
+            { nr : 6,  title : "Iron", audio :  new Audio("/AudioTracks/theUnforgiving/06 - Iron.mp3"), time : "0:0" },
+            { nr : 7,  title : "Where Is The Edge", audio :  new Audio("/AudioTracks/theUnforgiving/07 - Where Is The Edge.mp3"),    time : "0:0"},
+            { nr : 8,  title : "Sinead", audio :  new Audio("/AudioTracks/theUnforgiving/08 - Sinead.mp3"),  time : "0:0"} ,
+            { nr : 9,  title : "Lost", audio :  new Audio("/AudioTracks/theUnforgiving/09 - Lost.mp3"),    time : "0:0"},
+            { nr : 10,  title : "Murder", audio : new Audio("/AudioTracks/theUnforgiving/10 - Murder.mp3"),  time : "0:0" },
+            { nr : 11,  title : "A Demon's Fate", audio : new Audio("/AudioTracks/theUnforgiving/11 - A Demon's Fate.mp3"),    time : "0:0" },
+            { nr : 12,  title : "Stairway To The Skies", audio : new Audio("/AudioTracks/theUnforgiving/12 - Stairway To The Skies.mp3"), time : "0:0"},
+                
+        ]
+    },  {   artistName : "Within Temptation",
+        albumName : "Hydra",
+        albumCover : "/images/hydra.jpg",
+        releaseDate : new Date(2009, 9, 30),
+        backgroundImage : "/images/hydraBackground3.jpg",
+        tracks : [ 
+             { nr : 1, title : "The Reckoning (feat. Jacoby Shaddix)", audio : new Audio("/AudioTracks/resist/01 - The Reckoning (feat. Jacoby Shaddix).mp3"),  time : "0:0" },
+             { nr : 2, title : "Endless War" ,audio :  new Audio("/AudioTracks/resist/t03 - Raise Your Banner (feat. Anders Fridén).mp3"), time : "0:0" },
+             { nr : 3, title : "Raise Your Banner (feat. Anders Fridén)", audio :  new Audio("/AudioTracks/resist/03 - Frozen.mp3"), time : "0:0"},
+             { nr : 4,  title : "Supernova", audio :  new Audio("/AudioTracks/resist/04 - Supernova.mp3"),  time : "0:0" },
+             { nr : 5,  title : "Holy Ground", audio :  new Audio("/AudioTracks/resist/05 - Holy Ground.mp3"),  time : "0:0" },
+             { nr : 6,  title : "In Vain", audio :  new Audio("/AudioTracks/resist/06 - In Vain.mp3"), time : "0:0" },
+             { nr : 7,  title : "Firelight (feat. Jasper Steverlinck)", audio :  new Audio("/AudioTracks/resist/07 - Firelight (feat. Jasper Steverlinck).mp3"),    time : "0:0"},
+             { nr : 8,  title : "Mad World", audio :  new Audio("/AudioTracks/resist/08 - Mad World.mp3"),  time : "0:0"} ,
+             { nr : 9,  title : "Mercy Mirror", audio :  new Audio("/AudioTracks/resist/09 - Mercy Mirror.mp3"),    time : "0:0"},
+             { nr : 10,  title : "Trophy Hunter", audio : new Audio("/AudioTracks/resist/10 - Trophy Hunter Rose.mp3"),  time : "0:0" },
+           
+            
+             ]
+    },
+  
      {   artistName : "Within Temptation",
         albumName : "Resist",
         albumCover : "/images/resist.jpg",
