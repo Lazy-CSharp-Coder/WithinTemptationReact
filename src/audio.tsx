@@ -218,7 +218,7 @@ const motherEarthSuggestions : YoutubeSuggestion[] =
     {
        artistName : "Within Temptation",
        albumName : "The Unforgiving", 
-       albumCover : "/images/theUnforgiving.jpg",
+       albumCover : "/images/theunforgiving.jpg",
        releaseDate : new Date(2011, 4, 24),
        backgroundImage : "/images/theUnforgivingBackground.jpg",
        tracks : 
