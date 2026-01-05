@@ -9,22 +9,8 @@ import { PlayButton, ShareButton, type SkipTrackMode} from './Buttons.tsx'
 import { PlayingNow } from "./PlayRecord.tsx"
 import { playTrack } from './PlayAudio.tsx'
 import { YoutubeInfoButton } from './YoutubeInfoButton.tsx'
-import type { YouTubeEvent } from 'react-youtube'
 
 
-
-// video stuff
-
-const supernova : Video = 
-{
-    width : "560",
-    height : "315",
-    title : "YouTube video player",
-    src :"https://www.youtube.com/embed/Z3nb_r18ug0?si=raLyWybJKEYxMm9i" ,
-    cssClass : "iframeCSS",
-   
-
-}
 
 type PlayMode = "Playing" | "Pausing" | "Not Started";
 
@@ -40,7 +26,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
     
    
     const [shallIPlayVideo, setShallIPlay] = useState<boolean>(false);
-    const [isButtonGone, setButtonStatus] = useState<boolean>(false);
+    // const [isButtonGone, setButtonStatus] = useState<boolean>(false);
     const [youtubeExited, setYoutubeExitStatus] = useState<boolean>(false)
    
     // useStates for playing tracks
@@ -65,13 +51,6 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         return () => albumChosen.tracks[currentTrack].audio.removeEventListener("ended", handleAudioTrackEnded);
     }, [currentTrack]);
 
-    const handleAnimationEnd = () =>
-    {
-        if(shallIPlayVideo)
-        {
-            setButtonStatus(true);
-        } 
-    } 
 
    const handlePlayAlbumClick = () =>
    {

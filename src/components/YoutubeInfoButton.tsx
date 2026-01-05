@@ -2,7 +2,7 @@ import {useState} from "react"
 
 import type { YoutubeSuggestion } from "./Video";
 
-export function YoutubeInfoButton({id, imageurl, songTitle, released,  description, videoInfo, handleClick} :  YoutubeSuggestion & { handleClick : () => void})
+export function YoutubeInfoButton({id, imageurl, songTitle, released,  description,  handleClick} :  YoutubeSuggestion & { handleClick : () => void})
 {
     const [shallPlayVideo, setShallPlayVideo] = useState<boolean>(false);
  
