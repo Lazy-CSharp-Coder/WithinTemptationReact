@@ -1,7 +1,7 @@
 import { useState, useEffect} from 'react'
 
 // mine moduler som jeg prøver meg på import { VideoPlay, type Video} from "./components/Video.tsx"
-import { VideoPlay, type Video, type YoutubeSuggestion} from "./Video.tsx"
+import { VideoPlay, type YoutubeSuggestion} from "./Video.tsx"
 import { CoverReleaseDateDiv } from './CoverReleaseDateDiv.tsx'
 import { AlbumAndArtistDiv } from "./AlbumAndArtistDiv.tsx"
 import {  type record } from './../audio.tsx'
