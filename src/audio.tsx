@@ -127,16 +127,16 @@ export const albums : record[] =
         releaseDate : new Date(2009, 9, 30),
         backgroundImage : "/images/hydraBackground3.jpg",
         tracks : [ 
-             { nr : 1, title : "The Reckoning (feat. Jacoby Shaddix)", audio : new Audio("/AudioTracks/resist/01 - The Reckoning (feat. Jacoby Shaddix).mp3"),  time : "0:0" },
-             { nr : 2, title : "Endless War" ,audio :  new Audio("/AudioTracks/resist/t03 - Raise Your Banner (feat. Anders Fridén).mp3"), time : "0:0" },
-             { nr : 3, title : "Raise Your Banner (feat. Anders Fridén)", audio :  new Audio("/AudioTracks/resist/03 - Frozen.mp3"), time : "0:0"},
-             { nr : 4,  title : "Supernova", audio :  new Audio("/AudioTracks/resist/04 - Supernova.mp3"),  time : "0:0" },
-             { nr : 5,  title : "Holy Ground", audio :  new Audio("/AudioTracks/resist/05 - Holy Ground.mp3"),  time : "0:0" },
-             { nr : 6,  title : "In Vain", audio :  new Audio("/AudioTracks/resist/06 - In Vain.mp3"), time : "0:0" },
-             { nr : 7,  title : "Firelight (feat. Jasper Steverlinck)", audio :  new Audio("/AudioTracks/resist/07 - Firelight (feat. Jasper Steverlinck).mp3"),    time : "0:0"},
-             { nr : 8,  title : "Mad World", audio :  new Audio("/AudioTracks/resist/08 - Mad World.mp3"),  time : "0:0"} ,
-             { nr : 9,  title : "Mercy Mirror", audio :  new Audio("/AudioTracks/resist/09 - Mercy Mirror.mp3"),    time : "0:0"},
-             { nr : 10,  title : "Trophy Hunter", audio : new Audio("/AudioTracks/resist/10 - Trophy Hunter Rose.mp3"),  time : "0:0" },
+             { nr : 1, title : "Let Us Burn", audio : new Audio("/AudioTracks/resist01 - Let Us Burn.mp3"),  time : "0:0" },
+             { nr : 2, title : "Dangerous (Feat. Howard Jones)" ,audio :  new Audio("/AudioTracks/resist/02 - Dangerous (Feat. Howard Jones).mp3"), time : "0:0" },
+             { nr : 3, title : "And We Run (Feat. Xzibit)", audio :  new Audio("/AudioTracks/resist/03 - And We Run (Feat. Xzibit).mp3"), time : "0:0"},
+             { nr : 4,  title : "Paradise (What About Us) (Feat. Tarja)", audio :  new Audio("/AudioTracks/resist04 - Paradise (What About Us) (Feat. Tarja).mp3"),  time : "0:0" },
+             { nr : 5,  title : "Edge Of The World", audio :  new Audio("/AudioTracks/resist/05 - Edge Of The World.mp3"),  time : "0:0" },
+             { nr : 6,  title : "Silver Moonlight", audio :  new Audio("/AudioTracks/resist/06 - Silver Moonlight.mp3"), time : "0:0" },
+             { nr : 7,  title : "Covered By Roses", audio :  new Audio("/AudioTracks/resist/07 - Covered By Roses).mp3"),    time : "0:0"},
+             { nr : 8,  title : "Dog Days", audio :  new Audio("/AudioTracks/resist/08 - Dog Days.mp3"),  time : "0:0"} ,
+             { nr : 9,  title : "Tell Me Why", audio :  new Audio("/AudioTracks/resist/09 - Tell Me Why.mp3"),    time : "0:0"},
+             { nr : 10,  title : "Whole World Is Watching (Feat. Dave Pirner)", audio : new Audio("/AudioTracks/resist/10 - Whole World Is Watching (Feat. Dave Pirner) Rose.mp3"),  time : "0:0" },
            
             
              ]
@@ -149,7 +149,7 @@ export const albums : record[] =
         backgroundImage : "/images/resistBackground.jpg",
         tracks : [ 
              { nr : 1, title : "The Reckoning (feat. Jacoby Shaddix)", audio : new Audio("/AudioTracks/resist/01 - The Reckoning (feat. Jacoby Shaddix).mp3"),  time : "0:0" },
-             { nr : 2, title : "Endless War" ,audio :  new Audio("/AudioTracks/resist/t03 - Raise Your Banner (feat. Anders Fridén).mp3"), time : "0:0" },
+             { nr : 2, title : "Endless War" ,audio :  new Audio("/AudioTracks/resist/03 - Raise Your Banner (feat. Anders Fridén).mp3"), time : "0:0" },
              { nr : 3, title : "Raise Your Banner (feat. Anders Fridén)", audio :  new Audio("/AudioTracks/resist/03 - Frozen.mp3"), time : "0:0"},
              { nr : 4,  title : "Supernova", audio :  new Audio("/AudioTracks/resist/04 - Supernova.mp3"),  time : "0:0" },
              { nr : 5,  title : "Holy Ground", audio :  new Audio("/AudioTracks/resist/05 - Holy Ground.mp3"),  time : "0:0" },
