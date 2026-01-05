@@ -12,7 +12,7 @@ export function YoutubeInfoButton({id, imageurl, songTitle, released,  descripti
         if(handleClick) handleClick();
     }
    return(
-    <button className={!shallPlayVideo ? 'videoPlayButton flipInYAnim ' + {cssClass} : "videoPlayButton flipOutYAnim " + {cssClass}}  onClick={() => setShallPlayVideo(true)} onAnimationEnd={handleAnimationEnd} >
+    <button className={!shallPlayVideo ? `videoPlayButton flipInYAnim ${cssClass}` : `videoPlayButton flipOutYAnim ${cssClass}`}  onClick={() => setShallPlayVideo(true)} onAnimationEnd={handleAnimationEnd} >
 
             {/* <div className='flex youtubeInfoButtonDiv' > */}
                 

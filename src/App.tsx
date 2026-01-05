@@ -134,6 +134,7 @@ function App()
                                 released={video.released} 
                                 description={video.description}
                                 videoInfo={video.videoInfo}
+                                cssClass={video.cssClass}
                                 handleClick={() => setShallIPlay(true)} />
             : 
             <div>
