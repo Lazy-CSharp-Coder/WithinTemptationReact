@@ -40,7 +40,7 @@ function App()
   
 
   const [shownIntro, setShownIntro] = useState<boolean>(false);
-  const [albumNumber, setAlbumNumber] = useState<number>(5);
+  const [albumNumber, setAlbumNumber] = useState<number>(6);
   const initRef = useRef(false);
   
   const [displayHamburger, setDisplayHamburger] = useState<boolean>(false);
