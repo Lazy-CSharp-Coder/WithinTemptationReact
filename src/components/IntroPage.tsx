@@ -12,10 +12,13 @@ export function IntroPage({exitPage} : { exitPage : () => void})
                       I've listened to them over the years, since they had a big breakthrough in 2004 with "Stand My Ground" from "The Silent Force".</p>
                     <p className="introText">I started changing it and then began planning the page to switch between several albums and listen to them. </p>
                     <p className="introText">This page is only for practicing Web-development and will never be published in any form.</p>
-                    <button className="exitIntroButton flex" onClick={exitPage}>
-                        <img className="logoButtonIntro" src="/icons/wtlogov2.jpg" alt="logo within temptation"/>
-                        Enter Page</button>
+                   
             </div>
+            <div className="introPageDiv flex flipInYAnim" style={{animationDelay: "5s"}}> 
+                 <button className="exitIntroButton flex" onClick={exitPage}>
+                        <img className="logoButtonIntro" src="/icons/wtlogov2.jpg" alt="logo within temptation"/>
+                        Enter Page</button></div>
+           
        
         
         </>
