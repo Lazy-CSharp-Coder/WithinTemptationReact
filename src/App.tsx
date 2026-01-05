@@ -67,6 +67,8 @@ function App()
   const handleMenuListItemClick =  (id : number, text : string) =>
     {
         console.log("You've clicked " + id + " " + text);
+        setShallIPlay(false);
+        setYoutubeExitStatus(false);
         setAlbumNumber(id);
       
     }
@@ -136,7 +138,7 @@ function App()
             : 
             <div>
                 {albumChosen.youtubeSuggestions  &&
-                <VideoPlay width={video.videoInfo.width} 
+                <VideoPlay key={albumChosen.albumName} width={video.videoInfo.width} 
                 height={video.videoInfo.height} 
                 title={video.videoInfo.title} 
                 src={video.videoInfo.src} cssClass={video.videoInfo.cssClass} videoStoppedSignal={() => setYoutubeExitStatus(true)}/> 

@@ -39,7 +39,7 @@ const hydraSuggestions : YoutubeSuggestion[] =
 const resistSuggestions : YoutubeSuggestion[] =
 [
      {
-        id : 1,
+        id : 2,
         imageurl : "/images/youtube/supernova.jpg",
         songTitle : "Supernova",
         released : "11th October 2018",
@@ -49,9 +49,84 @@ const resistSuggestions : YoutubeSuggestion[] =
 
         }
 ];
- 
- 
-export const albums : record[] =
+
+const theUnforgivingSuggestions :  YoutubeSuggestion[] =
+[
+     {
+        id : 3,
+        imageurl : "/images/youtube/faster.jpg",
+        songTitle : "Faster",
+        released : "21st January 2011",
+        description : `Faster" is the first single from the album. The lyrics convey themes of personal freedom, breaking boundaries, and pursuing one's desires intensely.`,
+        videoInfo : { width : "560", height: "315", title : "Youtube video player",src : "https://www.youtube.com/embed/9lNNYrlCeDI?si=6GtySLtKlV8TBsa2"  , cssClass : "iframeCSS" }
+
+
+        }
+];
+
+const theHeartSuggestions : YoutubeSuggestion[] =
+[
+     {
+        id : 4,
+        imageurl : "/images/youtube/thewholeworld.jpg",
+        songTitle : "The Whole World is Watching",
+        released : "31st January 2014",
+        description : `The Whole World is Watching" is the thir single from the album. The lyrics convey themes about setbacks. In this versison Dave Pirner accompanies Sharon den Adel.`,
+        videoInfo : { width : "560", height: "315", title : "Youtube video player", src : "https://www.youtube.com/embed/VRNPkJ0ELPc?si=AB0lnA7M-GPvZgOS" , cssClass : "iframeCSS" }
+
+
+    }
+];
+
+
+const acousticSuggestions : YoutubeSuggestion[] =
+[
+     {
+        id : 5,
+        imageurl : "/images/youtube/acoustic.jpg",
+        songTitle : "Somwhere",
+        released : "13th November 2008",
+        description : `"Somewhere" is originally from the album "The Silent Force". Here the lead vocalist teams up with Anneke Van Giersbergen with the support of The Metropole Orchestra`,
+        videoInfo : { width : "560", height: "315", title : "Youtube video player", src : "https://www.youtube.com/embed/7eqBmEO5MHE?si=l-lfYXiq4v-tlOaE" , cssClass : "iframeCSS" }
+
+
+    }
+];
+
+
+
+const theSilentForceSuggestions : YoutubeSuggestion[] =
+[
+     {
+        id : 6,
+        imageurl : "/images/youtube/standmyground.jpg",
+        songTitle : "Stand My Ground",
+        released : "17th November 2004",
+        description : `"Stand My Ground" is the first single from the album. It has become one of the band's signature songs and is performed on their set of almost every concert since its release.`,
+        videoInfo : { width : "560", height: "315", title : "Youtube video player", src : "https://www.youtube.com/embed/98xh5Hb9QAM?si=WO11pz39bVx32ilN"  , cssClass : "iframeCSS" }
+
+
+    }
+];
+
+
+
+const motherEarthSuggestions : YoutubeSuggestion[] =
+[
+     {
+        id : 7,
+        imageurl : "/images/youtube/ourfarwell.jpg",
+        songTitle : "Our Farwell",
+        released : "24th December 2000",
+        description : `"Our Farwell" is the first single from the album. The song directly addresses someone experiencing deep sadness, assuring them they aren't truly alone and that the departed spirit will watch over them.` +
+        "The video shows a live recording featuring Gea Gijsbertsen",
+        videoInfo : { width : "560", height: "315", title : "Youtube video player", src : "https://www.youtube.com/embed/KnkKejof2jk?si=fHqRIi3Favfu7pT5"   , cssClass : "iframeCSS" }
+
+
+    }
+];
+
+ export const albums : record[] =
 [ {
        artistName : "Within Temptation",
        albumName : "Mother Earth",
@@ -72,7 +147,8 @@ export const albums : record[] =
             { nr : 10,  title : "In Perfect Harmony", audio : new Audio("/AudioTracks/motherEarth/10 - In Perfect Harmony.mp3"),  time : "0:0" },
            
                 
-        ]
+        ],
+        youtubeSuggestions : motherEarthSuggestions
     },
     {   artistName : "Within Temptation",
         albumName : "The Silent Force",
@@ -92,7 +168,9 @@ export const albums : record[] =
              { nr : 10,  title : "It's The Fear", audio : new Audio("/AudioTracks/theSlientForce/10 - It's The Fear.mp3"),  time : "0:0" },
              { nr : 11,  title : "Somewhere", audio : new Audio("/AudioTracks/theSlientForce/11 - Somewhere.mp3"),    time : "0:0" },
           
-             ]
+             ],
+             youtubeSuggestions : theSilentForceSuggestions
+
     }, {   artistName : "Within Temptation",
         albumName : "The Heart Of Everything",
         albumCover : "/images/theheartofeverything.png",
@@ -112,7 +190,8 @@ export const albums : record[] =
              { nr : 11,  title : "Forgiven", audio : new Audio("/AudioTracks/theHeart/11 - Forgiven.mp3"),    time : "0:0" },
              { nr : 12,  title : "What Have You Done (Rock Mix)", audio : new Audio("/AudioTracks/theHeart/12 - What Have You Done (Rock Mix).mp3"), time : "0:0"},
             
-             ]
+             ],
+             youtubeSuggestions : theHeartSuggestions
     }, {   artistName : "Within Temptation",
         albumName : "An Acoustic Night at the Theatre",
      albumCover : "/images/acoustic.jpg",
@@ -132,7 +211,8 @@ export const albums : record[] =
              { nr : 11,  title : "Forgiven", audio : new Audio("/AudioTracks/acoustic/11 - Forgiven.mp3"),    time : "0:0" },
              { nr : 12,  title : "Utopia ( Feat. Chris Jones )", audio : new Audio("/AudioTracks/acoustic/12 - Utopia ( Feat. Chris Jones ).mp3"), time : "0:0"},
             
-             ]
+             ],
+             youtubeSuggestions : acousticSuggestions
     },
     {
        artistName : "Within Temptation",
@@ -155,7 +235,9 @@ export const albums : record[] =
             { nr : 11,  title : "A Demon's Fate", audio : new Audio("/AudioTracks/theUnforgiving/11 - A Demon's Fate.mp3"),    time : "0:0" },
             { nr : 12,  title : "Stairway To The Skies", audio : new Audio("/AudioTracks/theUnforgiving/12 - Stairway To The Skies.mp3"), time : "0:0"},
                 
-        ]
+        ],
+        youtubeSuggestions : theUnforgivingSuggestions
+
     },  {   artistName : "Within Temptation",
         albumName : "Hydra",
         albumCover : "/images/hydra.jpg",

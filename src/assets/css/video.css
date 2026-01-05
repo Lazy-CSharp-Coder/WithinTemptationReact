@@ -9,7 +9,7 @@
     bottom :4px;
     /* transform : rotateY(90deg); */
 
-   
+    z-index: 12;
 }
 
 .iframeCSS
