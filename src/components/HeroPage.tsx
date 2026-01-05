@@ -1,13 +1,15 @@
 import { useState, useEffect} from 'react'
 
 // mine moduler som jeg prøver meg på import { VideoPlay, type Video} from "./components/Video.tsx"
-import { VideoPlay, type Video} from "./Video.tsx"
+import { VideoPlay, type Video, type YoutubeSuggestion} from "./Video.tsx"
 import { CoverReleaseDateDiv } from './CoverReleaseDateDiv.tsx'
 import { AlbumAndArtistDiv } from "./AlbumAndArtistDiv.tsx"
 import {  type record } from './../audio.tsx'
 import { PlayButton, ShareButton, type SkipTrackMode} from './Buttons.tsx'
 import { PlayingNow } from "./PlayRecord.tsx"
 import { playTrack } from './PlayAudio.tsx'
+import { YoutubeInfoButton } from './YoutubeInfoButton.tsx'
+import type { YouTubeEvent } from 'react-youtube'
 
 
 
@@ -100,6 +102,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         }
     }
 
+    const video : YoutubeSuggestion | undefined = albumChosen.youtubeSuggestions ? albumChosen.youtubeSuggestions[0] : undefined;;
 
     return(
         <>
@@ -113,7 +116,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
                      <AlbumAndArtistDiv albumName={albumName} albumArtist={artistName}/>
              
                     <div className='playingNowButtonWrapper flex'>
-                         <PlayingNow trackName={playMode != "Not Started" ? albumChosen.tracks[currentTrack].title : ""} playing={playMode === "Playing" ? true : false}/>
+                         <PlayingNow trackNumber={currentTrack} trackName={playMode != "Not Started" ? albumChosen.tracks[currentTrack].title : ""} playing={playMode === "Playing" ? true : false}/>
                    <div className='albumButtonWrapper flex'>
                      <PlayButton 
                      isPlaying={playMode === "Playing" ? true : false} 
@@ -133,15 +136,27 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
             </div>
             
         </section>
-        { !youtubeExited &&
-        <div className={shallIPlayVideo && isButtonGone? "videoPlayDiv" : "buttonPlayYoutubeDiv"}>
-            {!shallIPlayVideo || !isButtonGone ? <button className={!shallIPlayVideo ? 'videoPlayButton flipInYAnim' : "videoPlayButton flipOutYAnim"}  onClick={() => setShallIPlay(true)} onAnimationEnd={handleAnimationEnd} >
-            <img className='superNovaImg' src="/images/supernovaPoster2.jpg"/><div className='flex'><span className='wannaText'>Wanna watch <span className='supernovaText'>SUPERNOVA</span> ?</span> </div></button> :
+        { !youtubeExited && video &&
+        <div className="videoPlayDiv">
+            {albumChosen.youtubeSuggestions && video && !shallIPlayVideo ?
+
+            <YoutubeInfoButton key={video.id} id={video.id} songTitle={video.songTitle} 
+                                imageurl={video.imageurl}
+                                released={video.released} 
+                                description={video.description}
+                                videoInfo={video.videoInfo}
+                                handleClick={() => setShallIPlay(true)} />
+            : 
             <div>
-                <VideoPlay width={supernova.width} height={supernova.height} title={supernova.title} src={supernova.src} cssClass={supernova.cssClass} videoStoppedSignal={() => setYoutubeExitStatus(true)}/> 
-             
+                {albumChosen.youtubeSuggestions  &&
+                <VideoPlay width={video.videoInfo.width} 
+                height={video.videoInfo.height} 
+                title={video.videoInfo.title} 
+                src={video.videoInfo.src} cssClass={video.videoInfo.cssClass} videoStoppedSignal={() => setYoutubeExitStatus(true)}/> 
+                }
             </div>
             }
+            
         </div>  
         }
            
@@ -149,4 +164,5 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
       
         </>
     );
+    // className={shallIPlayVideo && isButtonGone? "videoPlayDiv" : "buttonPlayYoutubeDiv"}
 }

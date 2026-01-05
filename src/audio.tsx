@@ -1,3 +1,6 @@
+
+import type { YoutubeSuggestion } from "./components/Video";
+
 interface audioTrack 
 {
     nr : Number;
@@ -13,8 +16,40 @@ export interface record
     albumCover : string;
     releaseDate : Date;
     tracks : audioTrack[],
-    backgroundImage : string
+    backgroundImage : string,
+    youtubeSuggestions? : YoutubeSuggestion[]
 };
+
+
+const hydraSuggestions : YoutubeSuggestion[] =
+[
+     {
+        id : 1,
+        imageurl : "/images/youtube/dangerous.jpg",
+        songTitle : "Dangerous",
+        released : "20th December 2013",
+        description : `"Dangerous" is the second single from the album. The song features guest vocals from Howard Jones, the lead singer from the group Light the Torch.`,
+        videoInfo : { width : "560", height: "315", title : "Youtube video player", src :"https://www.youtube.com/embed/MAiV8RpqzME?si=HOrosGom12gzXO8m", cssClass : "iframeCSS" }
+
+
+        }
+];
+
+
+const resistSuggestions : YoutubeSuggestion[] =
+[
+     {
+        id : 1,
+        imageurl : "/images/youtube/supernova.jpg",
+        songTitle : "Supernova",
+        released : "11th October 2018",
+        description : `"Supernova" is the fifth single from the album. The song was exclusively presented at the start of the Resist Tour.`,
+        videoInfo : { width : "560", height: "315", title : "Youtube video player",src : "https://www.youtube.com/embed/Z3nb_r18ug0?si=raLyWybJKEYxMm9i" , cssClass : "iframeCSS" }
+
+
+        }
+];
+ 
  
 export const albums : record[] =
 [ {
@@ -139,7 +174,8 @@ export const albums : record[] =
              { nr : 10,  title : "Whole World Is Watching (Feat. Dave Pirner)", audio : new Audio("/AudioTracks/resist/10 - Whole World Is Watching (Feat. Dave Pirner) Rose.mp3"),  time : "0:0" },
            
             
-             ]
+             ],
+             youtubeSuggestions : hydraSuggestions
     },
   
      {   artistName : "Within Temptation",
@@ -149,8 +185,8 @@ export const albums : record[] =
         backgroundImage : "/images/resistBackground.jpg",
         tracks : [ 
              { nr : 1, title : "The Reckoning (feat. Jacoby Shaddix)", audio : new Audio("/AudioTracks/resist/01 - The Reckoning (feat. Jacoby Shaddix).mp3"),  time : "0:0" },
-             { nr : 2, title : "Endless War" ,audio :  new Audio("/AudioTracks/resist/03 - Raise Your Banner (feat. Anders Fridén).mp3"), time : "0:0" },
-             { nr : 3, title : "Raise Your Banner (feat. Anders Fridén)", audio :  new Audio("/AudioTracks/resist/03 - Frozen.mp3"), time : "0:0"},
+             { nr : 2, title : "Endless War" ,audio :  new Audio("/AudioTracks/resist/02 - Endless War.mp3"), time : "0:0" },
+             { nr : 3, title : "Raise Your Banner (feat. Anders Fridén)", audio :  new Audio("/AudioTracks/resist/03 - Raise Your Banner (feat. Anders Fridén).mp3"), time : "0:0"},
              { nr : 4,  title : "Supernova", audio :  new Audio("/AudioTracks/resist/04 - Supernova.mp3"),  time : "0:0" },
              { nr : 5,  title : "Holy Ground", audio :  new Audio("/AudioTracks/resist/05 - Holy Ground.mp3"),  time : "0:0" },
              { nr : 6,  title : "In Vain", audio :  new Audio("/AudioTracks/resist/06 - In Vain.mp3"), time : "0:0" },
@@ -160,7 +196,8 @@ export const albums : record[] =
              { nr : 10,  title : "Trophy Hunter", audio : new Audio("/AudioTracks/resist/10 - Trophy Hunter Rose.mp3"),  time : "0:0" },
            
             
-             ]
+             ],
+        youtubeSuggestions : resistSuggestions
     },
      
 ];

@@ -16,7 +16,7 @@
     100% { transform: rotateY(0deg);}
   }
 
-  .fadeInAnim {
+  .fadeInAnim, .fadeInAnimYoutube {
     animation-name: fadeIn;
     animation-duration: var(--defaultAnimDuration);
     animation-timing-function: ease-in-out; 
@@ -29,13 +29,18 @@
     100% { opacity: 1; }
   }
 
-  .scaleInAnim, .scaleInAnimPlay, .scaleInAnimShare {
+  
+
+  .scaleInAnim, .scaleInAnimPlay, .scaleInAnimShare, .scaleInAnimYoutube {
   animation-name: scaleIn;
   animation-duration:var(--defaultAnimDuration);
   animation-timing-function: ease-in-out;
   animation-fill-mode: backwards;
 }
 
+.scaleInAnimYoutube, .fadeInAnimYoutube {
+  animation-delay : 4.8s
+}
 .scaleInAnimPlay 
 {
    animation-delay: 0.3s;

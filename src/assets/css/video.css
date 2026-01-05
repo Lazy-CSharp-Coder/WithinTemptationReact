@@ -53,35 +53,6 @@
     font-size: 15px;
 }
 
-.videoPlayButton {
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap :10px;
-    font-family: 'Monument Extended'; 
-    color: white;
-    width : 20em;
-    height: fit-content;
-    font-size: 0.9em;
-    padding: 15px 15px;
-    border-radius: 3px;
-      border : 4px solid orange;
-    background-color: rgba(169, 169, 169, 0.603);
-    animation-delay: 5s;
-    transition: all 0.9s ease-in-out;
-}
-
-.videoPlayButton:hover {
-    border : 4px solid #51181e;
-    background-color: rgb(7, 7, 7);
-  
-   
-        color:antiquewhite;
-
-    
-}
 
 .superNovaImg {
     width:12em;
@@ -93,50 +64,16 @@
 
 }
 
-.videoPlayButton:hover .wannaText {
-    
-    scale : 1.04;
-    color:antiquewhite;
-}
-
-.videoPlayButton:hover .supernovaText {
-    
-    scale : 1.04;
-   color :#00648b;
-}
-
-.videoPlayButton:hover .superNovaImg {
-    border-color:  rgb(150, 150, 150);
-    -webkit-box-shadow: 0px 0px 18px 5px rgba(211,211,211,0.95); 
-    box-shadow: 0px 0px 18px 5px rgba(211,211,211,0.95);
-}
-
-.wannaText {
-    font-size: 0.8em;
-    margin-top: 10px;
-    color:rgba(5, 4, 2, 0.86);
-    transition : all 0.9s ease;
-    
-}
-/* 
-.wannaText:hover {
-  scale : 1.04;
-  color:antiquewhite;
-} */
-
-.supernovaText {
-  
-   transition: all 0.9s ease;
-    color:#ff6d52;
-}
 
 
 .flipInYAnim, .flipInVideo
 {
     animation-name: flipInY;
+    animation-delay: 4s;
     animation-duration: 1.5s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: backwards;
+    
 
 }
 

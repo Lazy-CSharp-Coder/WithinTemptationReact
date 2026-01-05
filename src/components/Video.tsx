@@ -1,19 +1,29 @@
 import {useState, useEffect} from "react"
 
-
 export interface Video {   
     height : string,
     width : string,
     title : string,
     src : string,
-    videoStoppedSignal?: () => void
-    cssClass? :  string,
+     cssClass? :  string,
+       videoStoppedSignal?: () => void
+}
+
+export interface YoutubeSuggestion 
+{
+    id : number,
+    imageurl : string,
+    songTitle : string,
+    released : string,
+    description : string,
+    videoInfo : Video,
+    
+  
 }
 
 
 
-
-export function VideoPlay({ width, height, title, src, cssClass, videoStoppedSignal} : Video)
+export function VideoPlay({ width, height, title, src, cssClass, videoStoppedSignal } : Video)
 { 
     const [shallClose, setCloseStatus] = useState<boolean>(false);
     
@@ -55,3 +65,4 @@ export function VideoPlay({ width, height, title, src, cssClass, videoStoppedSig
     )
 
 }
+
