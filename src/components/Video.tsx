@@ -17,6 +17,7 @@ export interface YoutubeSuggestion
     released : string,
     description : string,
     videoInfo : Video,
+    cssClass? : string
     
   
 }

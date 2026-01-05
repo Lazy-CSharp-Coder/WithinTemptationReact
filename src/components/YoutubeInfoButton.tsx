@@ -2,7 +2,7 @@ import {useState} from "react"
 
 import type { YoutubeSuggestion } from "./Video";
 
-export function YoutubeInfoButton({id, imageurl, songTitle, released,  description,  handleClick} :  YoutubeSuggestion & { handleClick : () => void})
+export function YoutubeInfoButton({id, imageurl, songTitle, released,  description,  handleClick, cssClass} :  YoutubeSuggestion & { handleClick : () => void})
 {
     const [shallPlayVideo, setShallPlayVideo] = useState<boolean>(false);
  
@@ -12,7 +12,7 @@ export function YoutubeInfoButton({id, imageurl, songTitle, released,  descripti
         if(handleClick) handleClick();
     }
    return(
-    <button className={!shallPlayVideo ? 'videoPlayButton flipInYAnim' : "videoPlayButton flipOutYAnim"}  onClick={() => setShallPlayVideo(true)} onAnimationEnd={handleAnimationEnd} >
+    <button className={!shallPlayVideo ? 'videoPlayButton flipInYAnim ' + {cssClass} : "videoPlayButton flipOutYAnim " + {cssClass}}  onClick={() => setShallPlayVideo(true)} onAnimationEnd={handleAnimationEnd} >
 
             {/* <div className='flex youtubeInfoButtonDiv' > */}
                 

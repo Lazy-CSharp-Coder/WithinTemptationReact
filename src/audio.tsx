@@ -72,7 +72,8 @@ const theHeartSuggestions : YoutubeSuggestion[] =
         songTitle : "The Whole World is Watching",
         released : "31st January 2014",
         description : `The Whole World is Watching" is the thir single from the album. The lyrics convey themes about setbacks. In this versison Dave Pirner accompanies Sharon den Adel.`,
-        videoInfo : { width : "560", height: "315", title : "Youtube video player", src : "https://www.youtube.com/embed/VRNPkJ0ELPc?si=AB0lnA7M-GPvZgOS" , cssClass : "iframeCSS" }
+        videoInfo : { width : "560", height: "315", title : "Youtube video player", src : "https://www.youtube.com/embed/VRNPkJ0ELPc?si=AB0lnA7M-GPvZgOS" , cssClass : "iframeCSS" },
+        cssClass : "theWholeWorld"
 
 
     }
@@ -84,7 +85,7 @@ const acousticSuggestions : YoutubeSuggestion[] =
      {
         id : 5,
         imageurl : "/images/youtube/acoustic.jpg",
-        songTitle : "Somwhere",
+        songTitle : "Somewhere",
         released : "13th November 2008",
         description : `"Somewhere" is originally from the album "The Silent Force". Here the lead vocalist teams up with Anneke Van Giersbergen with the support of The Metropole Orchestra`,
         videoInfo : { width : "560", height: "315", title : "Youtube video player", src : "https://www.youtube.com/embed/7eqBmEO5MHE?si=l-lfYXiq4v-tlOaE" , cssClass : "iframeCSS" }
