@@ -11,6 +11,9 @@ import { type ListMenuItem } from './components/ListItem.tsx'
 import { type SocialMediaItem } from "./components/NavSideMenu.tsx";
 import { Header } from "./components/Header.tsx";
 import { type MenuListOptions } from "./components/MenuList.tsx";
+import { YoutubeInfoButton } from "./components/YoutubeInfoButton.tsx";
+import { type YoutubeSuggestion, VideoPlay } from "./components/Video.tsx";
+
 
 
 const socialMediaItemsArray : SocialMediaItem[] =
@@ -51,6 +54,10 @@ function App()
       handleMenuClick : () => {}
     });
 
+      
+    const [shallIPlayVideo, setShallIPlay] = useState<boolean>(false);
+    // const [isButtonGone, setButtonStatus] = useState<boolean>(false);
+    const [youtubeExited, setYoutubeExitStatus] = useState<boolean>(false)
 
   const handleHamburgerClick =() => {
         console.log("handeling click:");
@@ -105,6 +112,7 @@ function App()
     // make studio album menu 
     console.log(navMenu);
     const albumChosen = albums[albumNumber];
+     const video : YoutubeSuggestion | undefined = albumChosen.youtubeSuggestions ? albumChosen.youtubeSuggestions[0] : undefined;;
 
    if(!shownIntro)   return(<IntroPage exitPage={() => setShownIntro(true)}/>)   // show intro page if it has not been displayed
   return (
@@ -113,9 +121,32 @@ function App()
       <BackgroundImage key={albumChosen.backgroundImage}  cssClassName='backgroundImage' imageFile={albums[albumNumber].backgroundImage} animNumber={animType.FadeIn} animDuration={"1s"}/>
       <HeroPage albumChosen={albumChosen}/>    
       {displayHamburger  &&
-      <NavSideMenu key={navMenu.id} navMenu={navMenu} socialMediaItems={socialMediaItemsArray} handleExit={handleHamburgerClick}/> 
+      <NavSideMenu key={navMenu.id} navMenu={navMenu} socialMediaItems={socialMediaItemsArray} handleExit={handleHamburgerClick}/> }
+      
+      { !youtubeExited && video &&
+        <div className="videoPlayDiv">
+            {albumChosen.youtubeSuggestions && video && !shallIPlayVideo ?
+
+            <YoutubeInfoButton key={video.id} id={video.id} songTitle={video.songTitle} 
+                                imageurl={video.imageurl}
+                                released={video.released} 
+                                description={video.description}
+                                videoInfo={video.videoInfo}
+                                handleClick={() => setShallIPlay(true)} />
+            : 
+            <div>
+                {albumChosen.youtubeSuggestions  &&
+                <VideoPlay width={video.videoInfo.width} 
+                height={video.videoInfo.height} 
+                title={video.videoInfo.title} 
+                src={video.videoInfo.src} cssClass={video.videoInfo.cssClass} videoStoppedSignal={() => setYoutubeExitStatus(true)}/> 
+                }
+            </div>
+            }
+        </div>  
+    }        
         
-           }   
+
     </>
   );
 }

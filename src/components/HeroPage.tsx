@@ -24,10 +24,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
     const albumName = albumChosen.albumName;
     const artistName = albumChosen.artistName;
     
-   
-    const [shallIPlayVideo, setShallIPlay] = useState<boolean>(false);
-    // const [isButtonGone, setButtonStatus] = useState<boolean>(false);
-    const [youtubeExited, setYoutubeExitStatus] = useState<boolean>(false)
+ 
    
     // useStates for playing tracks
 
@@ -81,8 +78,6 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         }
     }
 
-    const video : YoutubeSuggestion | undefined = albumChosen.youtubeSuggestions ? albumChosen.youtubeSuggestions[0] : undefined;;
-
     return(
         <>
     
@@ -115,29 +110,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
             </div>
             
         </section>
-        { !youtubeExited && video &&
-        <div className="videoPlayDiv">
-            {albumChosen.youtubeSuggestions && video && !shallIPlayVideo ?
-
-            <YoutubeInfoButton key={video.id} id={video.id} songTitle={video.songTitle} 
-                                imageurl={video.imageurl}
-                                released={video.released} 
-                                description={video.description}
-                                videoInfo={video.videoInfo}
-                                handleClick={() => setShallIPlay(true)} />
-            : 
-            <div>
-                {albumChosen.youtubeSuggestions  &&
-                <VideoPlay width={video.videoInfo.width} 
-                height={video.videoInfo.height} 
-                title={video.videoInfo.title} 
-                src={video.videoInfo.src} cssClass={video.videoInfo.cssClass} videoStoppedSignal={() => setYoutubeExitStatus(true)}/> 
-                }
-            </div>
-            }
-            
-        </div>  
-        }
+        
            
         </main>
       
