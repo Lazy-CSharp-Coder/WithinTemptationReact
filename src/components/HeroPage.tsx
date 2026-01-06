@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 // mine moduler som jeg prøver meg på import { VideoPlay, type Video} from "./components/Video.tsx"
 
@@ -8,9 +8,22 @@ import {  type record } from './../audio.tsx'
 import { PlayButton, ShareButton, type SkipTrackMode} from './Buttons.tsx'
 import { PlayingNow } from "./PlayRecord.tsx"
 import { playTrack } from './PlayAudio.tsx'
+import { TrackList } from './TrackList.tsx'
 
-type PlayMode = "Playing" | "Pausing" | "Not Started";
+export type PlayMode = "Playing" | "Pausing" | "Not Started";
+type MetaDataAsyncStatus = "loading" | "finished" | "not started" ;
 
+// gir tid som string
+function getTrackTime(timeInSeconds : number)
+{
+    const minutes = Math.floor(timeInSeconds/60);
+
+    let seconds = Math.floor(timeInSeconds - (minutes * 60));
+    const secondsStr : string = seconds < 10 ? `0${seconds}` : seconds.toLocaleString();
+
+    return `${minutes} : ${secondsStr}`;
+
+}
 
 export function HeroPage({ albumChosen } : { albumChosen : record }) 
 {  
@@ -25,7 +38,11 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
 
     const [playMode, setPlayMode] = useState<PlayMode>("Not Started");
     const [currentTrack, setCurrentTrackToPlay] = useState<number>(0);
-    
+     const [metadataAsyncStatus, setMetadataAsyncStatus] = useState<MetaDataAsyncStatus>("not started");
+
+    const prevAlbum = useRef<record | null>(null);
+    const prevTrackPlayed = useRef<number>(0)
+  
     useEffect(() =>
     {
         const handleAudioTrackEnded = () =>
@@ -39,7 +56,92 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         return () => albumChosen.tracks[currentTrack].audio.removeEventListener("ended", handleAudioTrackEnded);
     }, [currentTrack]);
 
+    // disse to holder styr på gamle audio spilling
 
+    useEffect(() => {
+        prevTrackPlayed.current = currentTrack;
+
+    }, [currentTrack]);
+
+    useEffect(() => {
+         if(prevAlbum.current && prevAlbum.current != albumChosen)
+         {
+             const formerTrackIndex = prevTrackPlayed.current ?? 0;  // switches to 0 if undefined ? Ask
+             const formerTracks = prevAlbum.current.tracks;
+             if(formerTracks && formerTracks[formerTrackIndex] && formerTracks[formerTrackIndex].audio)  // mye skjekking her
+                playTrack(formerTracks[formerTrackIndex].audio, "Stop");
+            setPlayMode("Not Started");
+            setCurrentTrackToPlay(0);
+
+         
+          } prevAlbum.current = albumChosen
+        }, [albumChosen]);
+
+  const setTrackStatus = (trackNumber : number, state : PlayMode) =>
+   {
+        console.log("play on a specific track is clicked");
+        if(playMode === "Playing" && currentTrack != trackNumber)
+            {
+               playTrack(albumChosen.tracks[currentTrack].audio, "Stop");
+               setPlayMode("Not Started");
+            }
+        
+        if(state === "Pausing" && currentTrack === trackNumber)
+            { playTrack(albumChosen.tracks[currentTrack].audio, "Pause");
+                setPlayMode("Pausing");
+            }
+        else if(state === "Playing" && currentTrack != trackNumber)
+        {
+            setCurrentTrackToPlay(trackNumber);
+            setPlayMode("Playing");
+       
+        }  
+
+   }; 
+
+    useEffect(() =>
+    {
+        const abortController = new AbortController();
+    
+        async function getMetaDataFromMP3Files()
+        {
+            const promises = [];
+            setMetadataAsyncStatus("loading");
+    
+            for(let i = 0; i < albumChosen.tracks.length; ++i)
+            {
+                const currTrack = albumChosen.tracks[i];
+                currTrack.audio.load();
+
+                promises.push(new Promise((resolve) =>
+                {
+                    if(currTrack.audio.duration && !isNaN(currTrack.audio.duration))
+                    {
+                        currTrack.time = getTrackTime(currTrack.audio.duration);
+                        resolve(`Track number : ${i+1} metadata already loaded`);
+                        return;
+                    }
+                    currTrack.audio.addEventListener("loadedmetadata", () =>
+                    {
+                        currTrack.time = getTrackTime(currTrack.audio.duration);
+                        
+                        resolve(`Track number : ${i+1} metadata loaded from file`);
+                    }, {once: true});
+
+                }));
+                await Promise.all(promises);
+                setMetadataAsyncStatus("finished");
+
+
+            }
+        }
+        getMetaDataFromMP3Files();
+
+        return () =>  abortController.abort();
+    }, [albumChosen]);
+
+    
+    
    const handlePlayAlbumClick = () =>
    {
         console.log("play clicked");
@@ -101,7 +203,13 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
             </div>
             
         </section>
-        
+        <section className='trackSection'>
+            {metadataAsyncStatus ==="finished" &&
+                <TrackList key={albumChosen.albumName} 
+            }
+            
+
+        </section>
            
         </main>
       

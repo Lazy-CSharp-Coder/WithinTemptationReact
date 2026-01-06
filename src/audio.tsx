@@ -1,9 +1,9 @@
 
 import type { YoutubeSuggestion } from "./components/Video";
 
-interface audioTrack 
+export interface AudioTrack 
 {
-    nr : Number;
+    nr : number;
     title : string;
     time : string;
     audio : HTMLAudioElement;
@@ -15,7 +15,7 @@ export interface record
     albumName : string;
     albumCover : string;
     releaseDate : Date;
-    tracks : audioTrack[],
+    tracks : AudioTrack[],
     backgroundImage : string,
     youtubeSuggestions? : YoutubeSuggestion[]
 };
@@ -68,15 +68,14 @@ const theHeartSuggestions : YoutubeSuggestion[] =
 [
      {
         id : 4,
-        imageurl : "/images/youtube/thewholeworld.jpg",
-        songTitle : "The Whole World is Watching",
+        imageurl : "/images/youtube/thehowling.jpg",
+        songTitle : "The Howling",
         released : "31st January 2014",
-        description : `The Whole World is Watching" is the thir single from the album. The lyrics convey themes about setbacks. In this versison Dave Pirner accompanies Sharon den Adel.`,
-        videoInfo : { width : "560", height: "315", title : "Youtube video player", src : "https://www.youtube.com/embed/VRNPkJ0ELPc?si=AB0lnA7M-GPvZgOS" , cssClass : "iframeCSS" },
-        cssClass : "theWholeWorld"
+        description : `The Howling" is the first single from the album. This song was originally written specifically for "The Cronicles of Spellborn" video game project in 2006. This is ` +
+        " the version that came with the game. Another one came in 2007.",
+        videoInfo : { width : "560", height: "315", title : "Youtube video player", src : "https://www.youtube.com/embed/ftseyuky0co?si=EFOF6-dWICnzQuYR"  , cssClass : "iframeCSS" },
 
-
-    }
+     }
 ];
 
 
@@ -157,17 +156,17 @@ const motherEarthSuggestions : YoutubeSuggestion[] =
         releaseDate : new Date(2007, 4, 12),
         backgroundImage : "/images/theSilentForceBackground.png",
         tracks : [ 
-             { nr : 1, title : "Intro", audio : new Audio("/AudioTracks/theSlientForce/01 - Intro.mp3"),  time : "0:0" },
-             { nr : 2, title : "See Who I Am" ,audio :  new Audio("/AudioTracks/theSlientForce/02 - See Who I Am.mp3"), time : "0:0" },
-             { nr : 3, title : "Jillian (I'd Give My Heart)", audio :  new Audio("/AudioTracks/theSlientForce/03 - Jillian (I'd Give My Heart).mp3"), time : "0:0"},
-             { nr : 4,  title : "Stand My Ground", audio :  new Audio("/AudioTracks/theSlientForce/04 - Stand My Ground.mp3"),  time : "0:0" },
-             { nr : 5,  title : "Pale", audio :  new Audio("/AudioTracks/theSlientForce/05 - Pale.mp3"),  time : "0:0" },
-             { nr : 6,  title : "Forsaken", audio :  new Audio("/AudioTracks/theSlientForce/06 - Forsaken.mp3"), time : "0:0" },
-             { nr : 7,  title : "Angels", audio :  new Audio("/AudioTracks/theSlientForce/07 - Angels.mp3"),    time : "0:0"},
-             { nr : 8,  title : "Memories", audio :  new Audio("/AudioTracks/theSlientForce/08 - Memories.mp3"),  time : "0:0"} ,
-             { nr : 9,  title : "Aquarius", audio :  new Audio("/AudioTracks/theSlientForce/09 - Aquariusmp3"),    time : "0:0"},
-             { nr : 10,  title : "It's The Fear", audio : new Audio("/AudioTracks/theSlientForce/10 - It's The Fear.mp3"),  time : "0:0" },
-             { nr : 11,  title : "Somewhere", audio : new Audio("/AudioTracks/theSlientForce/11 - Somewhere.mp3"),    time : "0:0" },
+             { nr : 1, title : "Intro", audio : new Audio("/AudioTracks/theSilentForce/01 - Intro.mp3"),  time : "0:0" },
+             { nr : 2, title : "See Who I Am" ,audio :  new Audio("/AudioTracks/theSilentForce/02 - See Who I Am.mp3"), time : "0:0" },
+             { nr : 3, title : "Jillian (I'd Give My Heart)", audio :  new Audio("/AudioTracks/theSilentForce/03 - Jillian (I'd Give My Heart).mp3"), time : "0:0"},
+             { nr : 4,  title : "Stand My Ground", audio :  new Audio("/AudioTracks/theSilentForce/04 - Stand My Ground.mp3"),  time : "0:0" },
+             { nr : 5,  title : "Pale", audio :  new Audio("/AudioTracks/theSilentForce/05 - Pale.mp3"),  time : "0:0" },
+             { nr : 6,  title : "Forsaken", audio :  new Audio("/AudioTracks/theSilentForce/06 - Forsaken.mp3"), time : "0:0" },
+             { nr : 7,  title : "Angels", audio :  new Audio("/AudioTracks/theSilentForce/07 - Angels.mp3"),    time : "0:0"},
+             { nr : 8,  title : "Memories", audio :  new Audio("/AudioTracks/theSilentForce/08 - Memories.mp3"),  time : "0:0"} ,
+             { nr : 9,  title : "Aquarius", audio :  new Audio("/AudioTracks/theSilentForce/09 - Aquariusmp3"),    time : "0:0"},
+             { nr : 10,  title : "It's The Fear", audio : new Audio("/AudioTracks/theSilentForce/10 - It's The Fear.mp3"),  time : "0:0" },
+             { nr : 11,  title : "Somewhere", audio : new Audio("/AudioTracks/theSilentForce/11 - Somewhere.mp3"),    time : "0:0" },
           
              ],
              youtubeSuggestions : theSilentForceSuggestions
@@ -245,16 +244,16 @@ const motherEarthSuggestions : YoutubeSuggestion[] =
         releaseDate : new Date(2009, 9, 30),
         backgroundImage : "/images/hydraBackground3.jpg",
         tracks : [ 
-             { nr : 1, title : "Let Us Burn", audio : new Audio("/AudioTracks/resist01 - Let Us Burn.mp3"),  time : "0:0" },
-             { nr : 2, title : "Dangerous (Feat. Howard Jones)" ,audio :  new Audio("/AudioTracks/resist/02 - Dangerous (Feat. Howard Jones).mp3"), time : "0:0" },
-             { nr : 3, title : "And We Run (Feat. Xzibit)", audio :  new Audio("/AudioTracks/resist/03 - And We Run (Feat. Xzibit).mp3"), time : "0:0"},
-             { nr : 4,  title : "Paradise (What About Us) (Feat. Tarja)", audio :  new Audio("/AudioTracks/resist04 - Paradise (What About Us) (Feat. Tarja).mp3"),  time : "0:0" },
-             { nr : 5,  title : "Edge Of The World", audio :  new Audio("/AudioTracks/resist/05 - Edge Of The World.mp3"),  time : "0:0" },
-             { nr : 6,  title : "Silver Moonlight", audio :  new Audio("/AudioTracks/resist/06 - Silver Moonlight.mp3"), time : "0:0" },
-             { nr : 7,  title : "Covered By Roses", audio :  new Audio("/AudioTracks/resist/07 - Covered By Roses).mp3"),    time : "0:0"},
-             { nr : 8,  title : "Dog Days", audio :  new Audio("/AudioTracks/resist/08 - Dog Days.mp3"),  time : "0:0"} ,
-             { nr : 9,  title : "Tell Me Why", audio :  new Audio("/AudioTracks/resist/09 - Tell Me Why.mp3"),    time : "0:0"},
-             { nr : 10,  title : "Whole World Is Watching (Feat. Dave Pirner)", audio : new Audio("/AudioTracks/resist/10 - Whole World Is Watching (Feat. Dave Pirner) Rose.mp3"),  time : "0:0" },
+             { nr : 1, title : "Let Us Burn", audio : new Audio("/AudioTracks/hydra/01 - Let Us Burn.mp3"),  time : "0:0" },
+             { nr : 2, title : "Dangerous (Feat. Howard Jones)" ,audio :  new Audio("/AudioTracks/hydra/02 - Dangerous (Feat. Howard Jones).mp3"), time : "0:0" },
+             { nr : 3, title : "And We Run (Feat. Xzibit)", audio :  new Audio("/AudioTracks/hydra/03 - And We Run (Feat. Xzibit).mp3"), time : "0:0"},
+             { nr : 4,  title : "Paradise (What About Us) (Feat. Tarja)", audio :  new Audio("/AudioTracks/hydra04 - Paradise (What About Us) (Feat. Tarja).mp3"),  time : "0:0" },
+             { nr : 5,  title : "Edge Of The World", audio :  new Audio("/AudioTracks/hydra/05 - Edge Of The World.mp3"),  time : "0:0" },
+             { nr : 6,  title : "Silver Moonlight", audio :  new Audio("/AudioTracks/hydra/06 - Silver Moonlight.mp3"), time : "0:0" },
+             { nr : 7,  title : "Covered By Roses", audio :  new Audio("/AudioTracks/hydra/07 - Covered By Roses).mp3"),    time : "0:0"},
+             { nr : 8,  title : "Dog Days", audio :  new Audio("/AudioTracks/hydra/08 - Dog Days.mp3"),  time : "0:0"} ,
+             { nr : 9,  title : "Tell Me Why", audio :  new Audio("/AudioTracks/hydra/09 - Tell Me Why.mp3"),    time : "0:0"},
+             { nr : 10,  title : "Whole World Is Watching (Feat. Dave Pirner)", audio : new Audio("/AudioTracks/hydra/10 - Whole World Is Watching (Feat. Dave Pirner) Rose.mp3"),  time : "0:0" },
            
             
              ],

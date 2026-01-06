@@ -1,7 +1,7 @@
 
 import  BackgroundImage, {animType}   from "./components/BackgroundImage.tsx"
 import { HeroPage } from "./components/HeroPage.tsx";
-import { albums } from "./audio.tsx";
+import { albums, type record } from "./audio.tsx";
 import { useState, useEffect, useRef } from "react"
 
 import "./App.css"
@@ -37,15 +37,12 @@ const socialMediaItemsArray : SocialMediaItem[] =
         { id : 5, text : "EVENTS" ,  cssClass :"hamburgerListItem"}
 
     ];
-     
+
 function App() 
 {
-  
-
   const [shownIntro, setShownIntro] = useState<boolean>(false);
-  const [albumNumber, setAlbumNumber] = useState<number>(6);
+  const [albumChosen, setAlbumChosen] = useState<record>(albums[5]);
   const initRef = useRef(false);
-  
   const [displayHamburger, setDisplayHamburger] = useState<boolean>(false);
   const [navMenu, setNavMenu] = useState<MenuListOptions>(
     { 
@@ -55,11 +52,12 @@ function App()
     });
 
       
-    const [shallIPlayVideo, setShallIPlay] = useState<boolean>(false);
+  const [shallIPlayVideo, setShallIPlay] = useState<boolean>(false);
     // const [isButtonGone, setButtonStatus] = useState<boolean>(false);
-    const [youtubeExited, setYoutubeExitStatus] = useState<boolean>(false)
+  const [youtubeExited, setYoutubeExitStatus] = useState<boolean>(false)
 
-  const handleHamburgerClick =() => {
+  const handleHamburgerClick =() => 
+    {
         console.log("handeling click:");
         setDisplayHamburger((prev) => !prev); 
     }
@@ -69,19 +67,11 @@ function App()
         console.log("You've clicked " + id + " " + text);
         setShallIPlay(false);
         setYoutubeExitStatus(false);
-        setAlbumNumber(id);
+        setAlbumChosen(albums[id]);
       
     }
 
-    // setNavMenuItems((prev) => (prev.map((item) => {...item, handleClick : handleMenuListItemClick} ) ) ); 
    
-    // navMenuItemsArray.forEach((item) =>
-    // {
-    //    item.handleClick = handleMenuListItemClick;
-
-    // });
-  
-
     useEffect( () =>
     {
         if(initRef.current) return;
@@ -111,16 +101,18 @@ function App()
           
     },[]);
 
+   
     // make studio album menu 
-    console.log(navMenu);
-    const albumChosen = albums[albumNumber];
-     const video : YoutubeSuggestion | undefined = albumChosen.youtubeSuggestions ? albumChosen.youtubeSuggestions[0] : undefined;;
+    console.log(`at the moment metadata is : ${metadataAsyncStatus}`);
 
+     const video : YoutubeSuggestion | undefined = albumChosen.youtubeSuggestions ? albumChosen.youtubeSuggestions[0] : undefined;;
+    
+ 
    if(!shownIntro)   return(<IntroPage exitPage={() => setShownIntro(true)}/>)   // show intro page if it has not been displayed
   return (
     <>
       <Header hamburgerClick={handleHamburgerClick}/>
-      <BackgroundImage key={albumChosen.backgroundImage}  cssClassName='backgroundImage' imageFile={albums[albumNumber].backgroundImage} animNumber={animType.FadeIn} animDuration={"1s"}/>
+      <BackgroundImage key={albumChosen.backgroundImage}  cssClassName='backgroundImage' imageFile={albumChosen.backgroundImage} animNumber={animType.FadeIn} animDuration={"1s"}/>
       <HeroPage albumChosen={albumChosen}/>    
       {displayHamburger  &&
       <NavSideMenu key={navMenu.id} navMenu={navMenu} socialMediaItems={socialMediaItemsArray} handleExit={handleHamburgerClick}/> }
@@ -147,8 +139,10 @@ function App()
             </div>
             }
         </div>  
-    }        
-        
+       
+    } 
+  
+  
 
     </>
   );

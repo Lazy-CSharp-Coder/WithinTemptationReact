@@ -1,0 +1,48 @@
+
+
+.playerIcon {
+    height:80px;
+    padding: 20px 20px;
+    /* grid-column-start: 1; 
+    grid-column-end: 2;   */
+    border: 1px solid white;
+  
+  }
+  
+  .musicIcons {
+    /* padding: 20px 0; */
+    height:80px;
+    padding-top: 30px;
+    padding-bottom : 30px;
+    padding-left : 30px;
+    padding-right: 30px;
+  
+    /* background-color: black; */
+    border: 1px solid white;
+  
+  }
+  
+  .trackSection {
+    flex-direction: column;
+    margin-left: 300px;
+    align-items: stretch;
+  }
+  
+  
+  .trackListDiv {
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+   
+  }
+
+  .trackListItem{
+    display: grid;
+
+    grid-template-columns: 5% 5% 60% 20% 10%;
+}
+
+
+  .tracks {
+
+  }
