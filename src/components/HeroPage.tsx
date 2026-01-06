@@ -8,22 +8,11 @@ import {  type record } from './../audio.tsx'
 import { PlayButton, ShareButton, type SkipTrackMode} from './Buttons.tsx'
 import { PlayingNow } from "./PlayRecord.tsx"
 import { playTrack } from './PlayAudio.tsx'
-import { TrackList } from './TrackList.tsx'
+import type { TrackListItemOptions } from './TrackListItem.tsx'
 
 export type PlayMode = "Playing" | "Pausing" | "Not Started";
-type MetaDataAsyncStatus = "loading" | "finished" | "not started" ;
 
-// gir tid som string
-function getTrackTime(timeInSeconds : number)
-{
-    const minutes = Math.floor(timeInSeconds/60);
 
-    let seconds = Math.floor(timeInSeconds - (minutes * 60));
-    const secondsStr : string = seconds < 10 ? `0${seconds}` : seconds.toLocaleString();
-
-    return `${minutes} : ${secondsStr}`;
-
-}
 
 export function HeroPage({ albumChosen } : { albumChosen : record }) 
 {  
@@ -38,7 +27,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
 
     const [playMode, setPlayMode] = useState<PlayMode>("Not Started");
     const [currentTrack, setCurrentTrackToPlay] = useState<number>(0);
-     const [metadataAsyncStatus, setMetadataAsyncStatus] = useState<MetaDataAsyncStatus>("not started");
+   
 
     const prevAlbum = useRef<record | null>(null);
     const prevTrackPlayed = useRef<number>(0)
@@ -99,48 +88,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
 
    }; 
 
-    useEffect(() =>
-    {
-        const abortController = new AbortController();
-    
-        async function getMetaDataFromMP3Files()
-        {
-            const promises = [];
-            setMetadataAsyncStatus("loading");
-    
-            for(let i = 0; i < albumChosen.tracks.length; ++i)
-            {
-                const currTrack = albumChosen.tracks[i];
-                currTrack.audio.load();
-
-                promises.push(new Promise((resolve) =>
-                {
-                    if(currTrack.audio.duration && !isNaN(currTrack.audio.duration))
-                    {
-                        currTrack.time = getTrackTime(currTrack.audio.duration);
-                        resolve(`Track number : ${i+1} metadata already loaded`);
-                        return;
-                    }
-                    currTrack.audio.addEventListener("loadedmetadata", () =>
-                    {
-                        currTrack.time = getTrackTime(currTrack.audio.duration);
-                        
-                        resolve(`Track number : ${i+1} metadata loaded from file`);
-                    }, {once: true});
-
-                }));
-                await Promise.all(promises);
-                setMetadataAsyncStatus("finished");
-
-
-            }
-        }
-        getMetaDataFromMP3Files();
-
-        return () =>  abortController.abort();
-    }, [albumChosen]);
-
-    
+  
     
    const handlePlayAlbumClick = () =>
    {
@@ -171,10 +119,19 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         }
     }
 
+    function getTrackListWithOptions() : TrackListItemOptions[]
+    {
+        const tracksWithOptions : TrackListItemOptions[] = albumChosen.tracks.map((item, index) =>(
+           { ...item ,  currentState : ( playMode === "Playing" && currentTrack == index) ? "Playing" : "Not Started"})
+        )
+        return tracksWithOptions;
+    }
+    
+
     return(
         <>
     
-        <main>
+        <main key={albumChosen.albumName}>
         <section key={albumChosen.albumName} className='coverSection'>
             <div className="uppperSectionContainerDiv">
             <div className="coverTextWrapper flex">
@@ -204,9 +161,8 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
             
         </section>
         <section className='trackSection'>
-            {metadataAsyncStatus ==="finished" &&
-                <TrackList key={albumChosen.albumName} 
-            }
+           {/* <TrackList key={albumChosen.albumName} tracks={getTrackListWithOptions()} setTrackStatus={setTrackStatus} /> */}
+     
             
 
         </section>

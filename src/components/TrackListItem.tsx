@@ -10,8 +10,8 @@ export interface TrackListItemOptions extends AudioTrack
 
 export function TrackListItem({nr, title, time,  cssClass, currentState, updateStatus} : TrackListItemOptions & { updateStatus : (trackNumber : number, state : PlayMode) => void})
 {
-    const playIconUrl = "/icons/playIcon.png";
-    const pauseIconUrl = "/icons/pauseIcon.png";
+    const playIconUrl = "/icons/playwhite.png";
+    const pauseIconUrl = "/icons/pause.png";
 
     return(
 

@@ -37,6 +37,21 @@ const socialMediaItemsArray : SocialMediaItem[] =
         { id : 5, text : "EVENTS" ,  cssClass :"hamburgerListItem"}
 
     ];
+type MetaDataAsyncStatus = "loading" | "finished" | "not started" ;
+
+
+// gir tid som string
+function getTrackTime(timeInSeconds : number)
+{
+    const minutes = Math.floor(timeInSeconds/60);
+
+    let seconds = Math.floor(timeInSeconds - (minutes * 60));
+    const secondsStr : string = seconds < 10 ? `0${seconds}` : seconds.toLocaleString();
+
+    return `${minutes} : ${secondsStr}`;
+
+}
+
 
 function App() 
 {
@@ -51,11 +66,63 @@ function App()
       handleMenuClick : () => {}
     });
 
-      
+  const [metadataAsyncStatus, setMetadataAsyncStatus] = useState<MetaDataAsyncStatus>("not started");
   const [shallIPlayVideo, setShallIPlay] = useState<boolean>(false);
     // const [isButtonGone, setButtonStatus] = useState<boolean>(false);
   const [youtubeExited, setYoutubeExitStatus] = useState<boolean>(false)
 
+    useEffect(() =>
+      {
+          let mounted = true;
+          // const abortController = new AbortController();
+    
+          async function getMetaDataFromMP3Files()
+          {
+              
+            setMetadataAsyncStatus("loading");
+              const promises = [];
+             
+              console.log("at least I'm here");
+
+          
+            for(let j = 0; j < albums.length; ++j)
+            {
+                const currTracks = albums[j].tracks;                
+
+              for(let i = 0; i < currTracks.length; ++i)
+              {
+                  promises.push(new Promise((resolve) =>
+                  { 
+  
+                     const currTrack = currTracks[i];
+                      const setTime = () =>
+                      {
+                          currTrack.time = getTrackTime(currTrack.audio.duration);
+                          console.log("set time called width : " +currTrack.time);
+                          resolve(`Track number : ${i+1} metadata loaded from file`); 
+  
+                      }
+                     
+                      if(currTrack.audio.readyState >= 1 && currTrack.time == "0:0")
+                      { setTime();}
+                      else 
+                      {
+                          currTrack.audio.addEventListener("loadedmetadata", setTime, {once: true});
+                          currTrack.audio.load();  
+                      }
+                  }));
+              } 
+            }
+
+            await Promise.all(promises);
+            
+          }
+         getMetaDataFromMP3Files();
+        if(mounted) setMetadataAsyncStatus("finished");
+        return () => { mounted = false; }
+      }, []);
+  
+      
   const handleHamburgerClick =() => 
     {
         console.log("handeling click:");
@@ -102,8 +169,8 @@ function App()
     },[]);
 
    
-    // make studio album menu 
-    console.log(`at the moment metadata is : ${metadataAsyncStatus}`);
+
+
 
      const video : YoutubeSuggestion | undefined = albumChosen.youtubeSuggestions ? albumChosen.youtubeSuggestions[0] : undefined;;
     
@@ -111,6 +178,8 @@ function App()
    if(!shownIntro)   return(<IntroPage exitPage={() => setShownIntro(true)}/>)   // show intro page if it has not been displayed
   return (
     <>
+      {metadataAsyncStatus === "finished" ? 
+      <>
       <Header hamburgerClick={handleHamburgerClick}/>
       <BackgroundImage key={albumChosen.backgroundImage}  cssClassName='backgroundImage' imageFile={albumChosen.backgroundImage} animNumber={animType.FadeIn} animDuration={"1s"}/>
       <HeroPage albumChosen={albumChosen}/>    
@@ -139,10 +208,10 @@ function App()
             </div>
             }
         </div>  
-       
+      
     } 
   
-  
+      </> : <p>loading</p>}
 
     </>
   );

@@ -143,7 +143,7 @@ const motherEarthSuggestions : YoutubeSuggestion[] =
             { nr : 6,  title : "Never-Ending Story", audio :  new Audio("/AudioTracks/motherEarth/06 - Never-Ending Story.mp3"), time : "0:0" },
             { nr : 7,  title : "Deceiver Of Fools", audio :  new Audio("/AudioTracks/motherEarth/07 - Deceiver Of Fools.mp3"),    time : "0:0"},
             { nr : 8,  title : "Intro", audio :  new Audio("/AudioTracks/motherEarth/08 - Intro.mp3"),  time : "0:0"} ,
-            { nr : 9,  title : "Dark Wings", audio :  new Audio("/AudioTracks/motherEarth/09 - Dark Wingst.mp3"),    time : "0:0"},
+            { nr : 9,  title : "Dark Wings", audio :  new Audio("/AudioTracks/motherEarth/09 - Dark Wings.mp3"),    time : "0:0"},
             { nr : 10,  title : "In Perfect Harmony", audio : new Audio("/AudioTracks/motherEarth/10 - In Perfect Harmony.mp3"),  time : "0:0" },
            
                 
@@ -164,7 +164,7 @@ const motherEarthSuggestions : YoutubeSuggestion[] =
              { nr : 6,  title : "Forsaken", audio :  new Audio("/AudioTracks/theSilentForce/06 - Forsaken.mp3"), time : "0:0" },
              { nr : 7,  title : "Angels", audio :  new Audio("/AudioTracks/theSilentForce/07 - Angels.mp3"),    time : "0:0"},
              { nr : 8,  title : "Memories", audio :  new Audio("/AudioTracks/theSilentForce/08 - Memories.mp3"),  time : "0:0"} ,
-             { nr : 9,  title : "Aquarius", audio :  new Audio("/AudioTracks/theSilentForce/09 - Aquariusmp3"),    time : "0:0"},
+             { nr : 9,  title : "Aquarius", audio :  new Audio("/AudioTracks/theSilentForce/09 - Aquarius.mp3"),    time : "0:0"},
              { nr : 10,  title : "It's The Fear", audio : new Audio("/AudioTracks/theSilentForce/10 - It's The Fear.mp3"),  time : "0:0" },
              { nr : 11,  title : "Somewhere", audio : new Audio("/AudioTracks/theSilentForce/11 - Somewhere.mp3"),    time : "0:0" },
           
@@ -247,13 +247,13 @@ const motherEarthSuggestions : YoutubeSuggestion[] =
              { nr : 1, title : "Let Us Burn", audio : new Audio("/AudioTracks/hydra/01 - Let Us Burn.mp3"),  time : "0:0" },
              { nr : 2, title : "Dangerous (Feat. Howard Jones)" ,audio :  new Audio("/AudioTracks/hydra/02 - Dangerous (Feat. Howard Jones).mp3"), time : "0:0" },
              { nr : 3, title : "And We Run (Feat. Xzibit)", audio :  new Audio("/AudioTracks/hydra/03 - And We Run (Feat. Xzibit).mp3"), time : "0:0"},
-             { nr : 4,  title : "Paradise (What About Us) (Feat. Tarja)", audio :  new Audio("/AudioTracks/hydra04 - Paradise (What About Us) (Feat. Tarja).mp3"),  time : "0:0" },
+             { nr : 4,  title : "Paradise (What About Us) (Feat. Tarja)", audio :  new Audio("/AudioTracks/hydra/04 - Paradise (What About Us) (Feat. Tarja).mp3"),  time : "0:0" },
              { nr : 5,  title : "Edge Of The World", audio :  new Audio("/AudioTracks/hydra/05 - Edge Of The World.mp3"),  time : "0:0" },
              { nr : 6,  title : "Silver Moonlight", audio :  new Audio("/AudioTracks/hydra/06 - Silver Moonlight.mp3"), time : "0:0" },
-             { nr : 7,  title : "Covered By Roses", audio :  new Audio("/AudioTracks/hydra/07 - Covered By Roses).mp3"),    time : "0:0"},
+             { nr : 7,  title : "Covered By Roses", audio :  new Audio("/AudioTracks/hydra/07 - Covered By Roses.mp3"),    time : "0:0"},
              { nr : 8,  title : "Dog Days", audio :  new Audio("/AudioTracks/hydra/08 - Dog Days.mp3"),  time : "0:0"} ,
              { nr : 9,  title : "Tell Me Why", audio :  new Audio("/AudioTracks/hydra/09 - Tell Me Why.mp3"),    time : "0:0"},
-             { nr : 10,  title : "Whole World Is Watching (Feat. Dave Pirner)", audio : new Audio("/AudioTracks/hydra/10 - Whole World Is Watching (Feat. Dave Pirner) Rose.mp3"),  time : "0:0" },
+             { nr : 10,  title : "Whole World Is Watching (Feat. Dave Pirner)", audio : new Audio("/AudioTracks/hydra/10 - Whole World Is Watching (Feat. Dave Pirner).mp3"),  time : "0:0" },
            
             
              ],
@@ -275,7 +275,7 @@ const motherEarthSuggestions : YoutubeSuggestion[] =
              { nr : 7,  title : "Firelight (feat. Jasper Steverlinck)", audio :  new Audio("/AudioTracks/resist/07 - Firelight (feat. Jasper Steverlinck).mp3"),    time : "0:0"},
              { nr : 8,  title : "Mad World", audio :  new Audio("/AudioTracks/resist/08 - Mad World.mp3"),  time : "0:0"} ,
              { nr : 9,  title : "Mercy Mirror", audio :  new Audio("/AudioTracks/resist/09 - Mercy Mirror.mp3"),    time : "0:0"},
-             { nr : 10,  title : "Trophy Hunter", audio : new Audio("/AudioTracks/resist/10 - Trophy Hunter Rose.mp3"),  time : "0:0" },
+             { nr : 10,  title : "Trophy Hunter", audio : new Audio("/AudioTracks/resist/10 - Trophy Hunter.mp3"),  time : "0:0" },
            
             
              ],
