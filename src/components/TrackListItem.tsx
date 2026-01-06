@@ -15,7 +15,7 @@ export function TrackListItem({nr, title, time,  cssClass, currentState, updateS
 
     return(
 
-        <li className="trackListItem">
+        <li className={`trackListItem ${cssClass}`}>
             <p>{nr.toLocaleString()}</p>
             <img onClick={() => (currentState === "Playing" ? updateStatus(nr, "Pausing") : updateStatus(nr, "Playing"))} className="playIcon" src={currentState === "Playing" ? pauseIconUrl : playIconUrl} alt="play/pause icon"/>
             <p>{title}</p>

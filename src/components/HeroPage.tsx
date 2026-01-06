@@ -9,6 +9,7 @@ import { PlayButton, ShareButton, type SkipTrackMode} from './Buttons.tsx'
 import { PlayingNow } from "./PlayRecord.tsx"
 import { playTrack } from './PlayAudio.tsx'
 import type { TrackListItemOptions } from './TrackListItem.tsx'
+import { TrackList } from './TrackList.tsx'
 
 export type PlayMode = "Playing" | "Pausing" | "Not Started";
 
@@ -66,6 +67,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
           } prevAlbum.current = albumChosen
         }, [albumChosen]);
 
+
   const setTrackStatus = (trackNumber : number, state : PlayMode) =>
    {
         console.log("play on a specific track is clicked");
@@ -89,6 +91,13 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
    }; 
 
   
+    function getTrackListWithOptions() : TrackListItemOptions[]
+    {
+        const tracksWithOptions : TrackListItemOptions[] = albumChosen.tracks.map((item, index) =>(
+           { ...item ,  currentState : ( playMode === "Playing" && currentTrack == index) ? "Playing" : "Not Started"})
+        )
+        return tracksWithOptions;
+    }
     
    const handlePlayAlbumClick = () =>
    {
@@ -119,13 +128,6 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
         }
     }
 
-    function getTrackListWithOptions() : TrackListItemOptions[]
-    {
-        const tracksWithOptions : TrackListItemOptions[] = albumChosen.tracks.map((item, index) =>(
-           { ...item ,  currentState : ( playMode === "Playing" && currentTrack == index) ? "Playing" : "Not Started"})
-        )
-        return tracksWithOptions;
-    }
     
 
     return(
@@ -160,13 +162,14 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
             </div>
             
         </section>
+        {!true &&
         <section className='trackSection'>
-           {/* <TrackList key={albumChosen.albumName} tracks={getTrackListWithOptions()} setTrackStatus={setTrackStatus} /> */}
+           <TrackList key={albumChosen.albumName} tracks={getTrackListWithOptions()} setTrackStatus={setTrackStatus} />
      
             
 
         </section>
-           
+}  
         </main>
       
         </>
