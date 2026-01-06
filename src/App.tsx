@@ -107,7 +107,7 @@ function App()
                       { setTime();}
                       else 
                       {
-                          currTrack.audio.addEventListener("loadedmetadata", setTime, {once: true});
+                          currTrack.audio.addEventL istener("loadedmetadata", setTime, {once: true});
                           currTrack.audio.load();  
                       }
                   }));
@@ -117,8 +117,16 @@ function App()
             await Promise.all(promises);
             
           }
-         getMetaDataFromMP3Files();
-        if(mounted) setMetadataAsyncStatus("finished");
+
+          /* from ai
+        (async () => {
+          try {
+            await getMetaDataFromMP3Files();
+          } finally {
+            if (mounted) setMetadataAsyncStatus("finished");
+          }
+        })();
+*/ 
         return () => { mounted = false; }
       }, []);
   
