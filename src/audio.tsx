@@ -1,6 +1,102 @@
 
 import type { YoutubeSuggestion } from "./components/Video";
 
+
+
+
+// interface Artist 
+// {
+//     artist : string,
+//     debut : string,
+//     members: Members[],
+//     records : Records[],
+//     tours : Tours[],
+    
+// }
+
+// interface Members 
+// {
+//     name : string, 
+//     birthdate : string,
+//     role : string, 
+//     active : , 
+//     imageUrl : string[]
+// }
+
+
+
+interface Artist
+{
+    name : string,
+    members : Artist[],
+    images : 
+    {
+        cover : string,
+        rest : string[]
+    }
+    albums : Album[],
+    news : News[],
+    evets : Events[]
+
+}
+
+interface Album 
+{
+    albumName : string,
+    artist : Artist[],
+    releaseDate : string, // kan være Date
+    coverUrl : string,
+    tracks : Track[],
+    backgroundImageUrl : string,
+    youtubeSuggestions? : YoutubeSuggestions[]
+}
+
+interface Track
+{
+    title : string,
+    audioUrl : string
+}
+
+
+export interface YoutubeSuggestion 
+{
+    id : number,
+    imageurl : string,
+    songTitle : string,
+    released : string,
+    description : string,
+    videoInfo : Video,
+    cssClass? : string
+  
+  
+}
+
+export interface Video {   
+    height : string,
+    width : string,
+    title : string,
+    src : string,
+    cssClass? :  string,
+}
+
+
+Object.keys
+
+
+// gjør om til boolean  - dvs length på 25 blir true (1)
+
+if(!!albums)
+
+    
+    albums = albums ?? 0;
+
+
+
+
+
+
+
+
 export interface AudioTrack 
 {
     nr : number;
