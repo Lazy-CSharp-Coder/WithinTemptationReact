@@ -107,7 +107,7 @@ function App()
                       { setTime();}
                       else 
                       {
-                          currTrack.audio.addEventL istener("loadedmetadata", setTime, {once: true});
+                          currTrack.audio.addEventListener("loadedmetadata", setTime, {once: true});
                           currTrack.audio.load();  
                       }
                   }));
@@ -219,7 +219,7 @@ function App()
       
     } 
   
-      </> : <p>loading</p>}
+      </> : <p key={metadataAsyncStatus}>loading</p>}
 
     </>
   );

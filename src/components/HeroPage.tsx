@@ -133,7 +133,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
     return(
         <>
     
-        <main key={albumChosen.albumName}>
+        <main  key={albumChosen.albumName} className="mainAlbum flex">
         <section key={albumChosen.albumName} className='coverSection'>
             <div className="uppperSectionContainerDiv">
             <div className="coverTextWrapper flex">
@@ -162,7 +162,7 @@ export function HeroPage({ albumChosen } : { albumChosen : record })
             </div>
             
         </section>
-        {!true &&
+        {true &&
         <section className='trackSection'>
            <TrackList key={albumChosen.albumName} tracks={getTrackListWithOptions()} setTrackStatus={setTrackStatus} />
      

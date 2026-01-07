@@ -12,6 +12,20 @@ interface TrackListOptions
 
 export function TrackList({tracks,  setTrackStatus} : TrackListOptions)
 {
+    // const [trackList setTrackList] = useState<TrackListItem[]>([]);
+
+    // useEffect(() =>
+    // {
+    //     let delay = 0;
+    //     const delayInc = 300;   
+    //     const timeOut = setTimeout(() =>
+    //     {
+            
+
+    //     })
+
+    // },[]);
+   
     return(
     <ol className="trackList">
     { tracks.map((item) =>

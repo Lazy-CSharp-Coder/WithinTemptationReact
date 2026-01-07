@@ -6,12 +6,12 @@
 }
 .logoMenu 
 {
-   height:  64px;
+   height:  50px;
 }
 
 .closeMenuImg {
   width: 22px;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 .headingCloseDiv {
@@ -23,7 +23,8 @@
   align-items: center;
   color:white;
   font-family: var(--primaryFontFamily);
-  font-size: 18px;
+  font-size: 1rem;
+  text-align: center;
 } 
 
 .hamburgerListItem {
@@ -40,7 +41,7 @@
   padding: 20px 40px;
   background-color: black;
   height: 100%;
-  width: 500px;
+  width: 20vw;
   position: fixed;
   top : 0;
   right: 0;
