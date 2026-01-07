@@ -117,8 +117,14 @@ function App()
             await Promise.all(promises);
             
           }
-         getMetaDataFromMP3Files();
-        if(mounted) setMetadataAsyncStatus("finished");
+          (async () =>
+          {
+            await getMetaDataFromMP3Files();
+           
+          }) ();
+           if(mounted) setMetadataAsyncStatus("finished");
+    
+
         return () => { mounted = false; }
       }, []);
   
@@ -211,7 +217,7 @@ function App()
       
     } 
   
-      </> : <p>loading</p>}
+      </> : <p key={metadataAsyncStatus}>loading</p>}
 
     </>
   );
