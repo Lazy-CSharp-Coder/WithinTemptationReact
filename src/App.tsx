@@ -57,7 +57,7 @@ function App()
 {
   const [shownIntro, setShownIntro] = useState<boolean>(false);
   const [albumChosen, setAlbumChosen] = useState<record>(albums[5]);
-  const initRef = useRef(false);
+g
   const [displayHamburger, setDisplayHamburger] = useState<boolean>(false);
   const [navMenu, setNavMenu] = useState<MenuListOptions>(
     { 
@@ -120,9 +120,11 @@ function App()
           (async () =>
           {
             await getMetaDataFromMP3Files();
+            if(mounted) setMetadataAsyncStatus("finished");
            
           }) ();
-           if(mounted) setMetadataAsyncStatus("finished");
+          if(mounted) setMetadataAsyncStatus("finished");
+         
     
 
         return () => { mounted = false; }
@@ -144,7 +146,7 @@ function App()
       
     }
 
-   
+    const initRef = useRef(false);
     useEffect( () =>
     {
         if(initRef.current) return;
